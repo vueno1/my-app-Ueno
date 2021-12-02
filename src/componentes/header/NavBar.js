@@ -1,3 +1,5 @@
+//BOOTSTRAP 
+import Button from 'react-bootstrap/Button';
 
 const NavBar = () => {
     
@@ -12,7 +14,8 @@ const NavBar = () => {
                 <a href="">servicio tecnico</a>
                 <a href="">escribinos!</a>
 
-            </nav>          
+            </nav>   
+            <Button variant="primary">Primary</Button>       
 
         </>
     )
