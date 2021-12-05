@@ -1,4 +1,9 @@
-import NavBar from "./NavBar"
+
+//IMPORTS
+import NavBar from "./NavBar" // COMPONENTE 
+
+
+//---------------------------------------------------------------------
 
 const Header = () => {
     
@@ -9,6 +14,9 @@ const Header = () => {
 
                 <h1>Game Store</h1>
 
+                {/*//////
+                COMPONENTE
+                ///////// */}
                 <NavBar/>
 
             </header>

@@ -1,21 +1,44 @@
-//BOOTSTRAP 
-import Button from 'react-bootstrap/Button';
 
+
+//IMPORTS
+import CartWidget from './CartWidget'; // COMPONENTE 
+import Nav from 'react-bootstrap/Nav'; //BOOTSTRAP NAV 
+
+//---------------------------------------------------------------------------------------------------
 const NavBar = () => {
     
     return (
 
+        
         <>   
-                
-            <nav className= "header_nav">
 
-                <a href="">locales</a>
-                <a href="">segui tu compra</a>
-                <a href="">servicio tecnico</a>
-                <a href="">escribinos!</a>
+            {/* ///////////////
+              BOOTSTRAP = "nav" 
+            /////////////////*/}
+       
+            <Nav activeKey="/home" onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}>
 
-            </nav>   
-            <Button variant="primary">Primary</Button>       
+                <Nav.Item>
+                    <Nav.Link href="/home">Active</Nav.Link>
+                </Nav.Item>
+
+                <Nav.Item>
+                    <Nav.Link eventKey="link-1">Link</Nav.Link>
+                </Nav.Item>
+
+                <Nav.Item>
+                    <Nav.Link eventKey="link-2">Link</Nav.Link>
+                </Nav.Item>      
+                    
+
+
+                {/* //////
+                COMPONENTE
+                //////// */}
+                <CartWidget/>
+
+            </Nav>
+    
 
         </>
     )
