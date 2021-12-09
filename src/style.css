@@ -24,6 +24,24 @@ MAIN STYLES
     padding-top: 100px;
 }
 
+.divBotonesFuera {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(128, 128, 128, 0.116);
+}
+
+.divBotones {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    padding: 10px 0;
+}
+
+.divBotonAgregarCarrito {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
 
 
 

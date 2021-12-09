@@ -2,10 +2,14 @@
 
 //IMPORTS
 import React from 'react' //REACT 
+import ItemCount from './ItemCount'
+
 
 
 //----------------------------------------------------------------------------------
-function ItemListContainer(prop) {
+function ItemListContainer({nombre}) {
+
+
 
 
     return (
@@ -14,7 +18,12 @@ function ItemListContainer(prop) {
 
             <main className= "main">
 
-                <h2> hola {prop.nombre} !</h2>
+                <h2>{nombre}</h2>
+
+                {/*/////////////////////////////////////
+                IMPORTO COMPONENTE Y AGREGO PROP DE STOCK
+                ///////////////////////////////////// */}
+                <ItemCount stock= {5} />
 
             </main>
 

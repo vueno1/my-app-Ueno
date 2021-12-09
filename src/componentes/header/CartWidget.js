@@ -14,7 +14,9 @@ function CartWidget() {
                 {/* ////////////
                 ICONO DE GOOGLE 
                 /////////// */}
-                <span className="material-icons">search</span>
+                <span className="material-icons">shopping_cart</span>
+
+                
             </>
 
         </div>

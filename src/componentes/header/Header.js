@@ -12,7 +12,7 @@ const Header = () => {
         <>
             <header className= "header"> 
 
-                <h1>Game Store</h1>
+                <h1>TIENDA</h1>
 
                 {/*//////
                 COMPONENTE
