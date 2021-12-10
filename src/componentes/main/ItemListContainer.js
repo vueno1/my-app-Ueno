@@ -6,11 +6,15 @@ import ItemCount from './ItemCount'
 
 
 
+
 //----------------------------------------------------------------------------------
 function ItemListContainer({nombre}) {
 
+    const onAdd = () => {
 
-
+        console.log ( `el carrito tiene productos`)
+    
+    }
 
     return (
 
@@ -23,7 +27,7 @@ function ItemListContainer({nombre}) {
                 {/*/////////////////////////////////////
                 IMPORTO COMPONENTE Y AGREGO PROP DE STOCK
                 ///////////////////////////////////// */}
-                <ItemCount stock= {5} />
+                <ItemCount stock= {5} initial={0} onAdd={onAdd} />
 
             </main>
 
