@@ -43,6 +43,18 @@ MAIN STYLES
     padding: 10px 0;
 }
 
+.styleItem {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 20px;
+}
+
+.styleItem h3 {
+    font-family: 'Courier New', Courier, monospace;
+    color: blue;
+    background-color: rgba(128, 128, 128, 0.164);
+}
+
 
 
 /*////////////
