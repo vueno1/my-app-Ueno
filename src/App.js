@@ -3,6 +3,7 @@
 import Header from "./componentes/header/Header" //COMPONENTE 
 import Footer from "./componentes/footer/Footer" //COMPONENTE 
 import ItemListContainer from "./componentes/main/ItemListContainer"; // COMPONENTE
+import ItemDetailContainer from "./componentes/main/details/ItemDetailContainer";
 
 
 
@@ -18,7 +19,8 @@ const App = () => {
    return (
             <>
                 <Header/>
-                <ItemListContainer nombre={"E-COMMERCE"}/>                    
+                <ItemListContainer nombre={"E-COMMERCE"}/>  
+                <ItemDetailContainer/>
                 <Footer/>
             </>
             
