@@ -1,0 +1,9 @@
+Vale, 
+
+claro, debe estar en el padre, 
+es decir si el itemCount es hijo de ItemListContainer 
+entonces el onAdd debe estar en ItemListContainer, 
+tal como lo tienes, 
+ahora intenta pasar el estado contador como parámetro 
+a esa función onAdd y así desde el padre podrás saber cuantos productos 
+el contador esta seleccionando

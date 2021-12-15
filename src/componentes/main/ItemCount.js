@@ -14,6 +14,7 @@ function ItemCount({stock, initial, onAdd }) {
     //////////////////////////////////////////////////////////////////*/
     let [ contador, setContador] = useState (0)
 
+    //funcion SUMAR 
     const sumar = () => {
 
         if (contador >= stock ) {
@@ -24,6 +25,7 @@ function ItemCount({stock, initial, onAdd }) {
         }
     }
 
+    //funcion RESTAR
     const restar = () => {
 
         if (contador <= initial) {
@@ -33,6 +35,12 @@ function ItemCount({stock, initial, onAdd }) {
         }
     }  
 
+    //funcion agregar cantidad al carrito
+    const agregarCantidad = () => {
+        onAdd (contador)
+    }
+
+ 
 
     return (
 
@@ -50,7 +58,7 @@ function ItemCount({stock, initial, onAdd }) {
                     </div>
 
                     <div className= "divBotonAgregarCarrito">
-                        <Button onClick= {onAdd} variant="outline-info">Agregar al Carrito </Button>
+                        <Button onClick= {agregarCantidad} variant="outline-info">Agregar al Carrito </Button>
                     </div>              
 
 

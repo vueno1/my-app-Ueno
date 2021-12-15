@@ -20,14 +20,12 @@ const productos = [
 //----------------------------------------------------------------------------------
 function ItemListContainer({nombre}) {
 
-    const onAdd = () => {
-
-        console.log ( `el carrito tiene productos`)
-    
+    //funcion para mostrar cantidad de productos.
+    const onAdd = (cantidad) => {
+        console.log ( `el carrito tiene ${cantidad} productos` )    
     }
 
     //variable "lista" la cual comienza como un array y con hook useState cambiara su estado
-
     let [lista, setLista] = useState ([])
     
     //efecto secundario mientras se carga la pagina...
