@@ -1,7 +1,7 @@
 import React from 'react'
 
 //recibo los props del padre → "articulo y precio"
-function Item({articulo, precio}) {
+function Item({articulo, precio, image}) {
     
     
     return (
@@ -9,12 +9,13 @@ function Item({articulo, precio}) {
         <>
         
             {/* y los muestro en el DOM */}
-            <div className='styleItem'>
-
-                <h3> {articulo} </h3>
-                <p> USD {precio} </p>
-                
-            </div>
+                <div className='styleItem'>
+                    <div>
+                        <img src={image} alt="" />                
+                    </div>
+                    <p> {articulo} </p>
+                    <p> USD {precio} </p>
+                </div>
         
         </>
     )

@@ -43,17 +43,24 @@ MAIN STYLES
     padding: 10px 0;
 }
 
-.styleItem {
+.styleContainer {
     display: grid;
-    grid-template-columns: 1fr;
-    padding: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
-.styleItem h3 {
-    font-family: 'Courier New', Courier, monospace;
-    color: blue;
-    background-color: rgba(128, 128, 128, 0.164);
+.styleItem {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(128, 128, 128, 0.233);
+    border-radius: 5px;
+    margin: 10px;
 }
+
+.styleItem img {
+    height: 100px;
+}
+
+
 
 
 
