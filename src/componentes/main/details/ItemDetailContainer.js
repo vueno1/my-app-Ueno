@@ -2,34 +2,33 @@ import React from 'react'
 import ItemDetail from './ItemDetail'
 import {useState, useEffect} from 'react'
 
-const productoSeleccionado = {
-    id: 1,
-    precio: 10,
-    articulo: "apple"
-}
 
 
-function ItemDetailContainer() {
+function ItemDetailContainer() {  
 
     let [producto, setProducto] = useState ([])
 
     useEffect ( () => {
 
+        fetch ('https://fakestoreapi.com/products/1')
 
-        setTimeout (()=> {
-            setProducto (productoSeleccionado)
-        }, 2000)
+            .then ( (res)=> res.json ())
+            .then ((res) => {
+
+                setTimeout (()=> {
+                    setProducto (res)
+                }, 2000)
+
+            })
 
     }, [])
-
-
 
     return (
 
         <>
         
             {producto.length === 0? (
-                <h3>cargando producto detalle.....</h3>
+                <h3>{'⏳'} Cargando producto seleccionado....</h3>
             ): (
 
                 <>
