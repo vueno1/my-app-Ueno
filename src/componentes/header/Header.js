@@ -5,7 +5,7 @@ import NavBar from "./NavBar" // COMPONENTE
 
 //---------------------------------------------------------------------
 
-const Header = () => {
+const Header = ({links}) => {
     
     return (
 
@@ -17,7 +17,7 @@ const Header = () => {
                 {/*//////
                 COMPONENTE
                 ///////// */}
-                <NavBar/>
+                <NavBar links={links} /> {/* le paso a navbar los links creados */}
 
             </header>
 

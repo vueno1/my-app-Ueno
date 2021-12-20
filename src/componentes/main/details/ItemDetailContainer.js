@@ -19,6 +19,8 @@ function ItemDetailContainer() {
                     setProducto (res)
                 }, 2000)
 
+                console.log (res)
+
             })
 
     }, [])
@@ -26,15 +28,21 @@ function ItemDetailContainer() {
     return (
 
         <>
-        
+
+        <div className='divSeleccion'>
+
             {producto.length === 0? (
                 <h3>{'⏳'} Cargando producto seleccionado....</h3>
             ): (
-
-                <>
-                    <ItemDetail producto= {producto}/>
-                </>
+                
+                <ItemDetail producto= {producto}/>                  
+                
             )}
+
+
+
+        </div>
+        
         </>
         
     )

@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 //recibo los props del padre → "articulo y precio"
 function Item({articulo, precio, image}) {
     
@@ -15,6 +16,8 @@ function Item({articulo, precio, image}) {
                     </div>
                     <p> {articulo} </p>
                     <p> USD {precio} </p>
+                    <button>+agregar</button>
+                  
                 </div>
         
         </>

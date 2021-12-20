@@ -5,6 +5,11 @@
     
 }
 
+#root {
+    display: flex;
+    flex-direction: column;
+}
+
 /*/////////////
 HEADER STYLES 
 /////////////*/
@@ -16,12 +21,27 @@ HEADER STYLES
     width: 100%;
 }
 
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    list-style-type: none;
+}
+
 
 /*//////////
 MAIN STYLES 
 //////////*/
 .main {
-    padding-top: 100px;
+    padding: 1rem;
+    flex-grow: 1;
+
 }
 
 .divBotonesFuera {
@@ -60,14 +80,16 @@ MAIN STYLES
     height: 100px;
 }
 
-
-
-
+.divSeleccion {
+    padding: 100px 0;
+}
 
 /*////////////
 FOOTER STYLES 
 ////////////*/
 
 .footer {
-    padding-top: 500px;
+    background-color: yellow;
+    padding: 0.5rem 0;
+    text-align: center;
 }

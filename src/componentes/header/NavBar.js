@@ -4,32 +4,29 @@
 import CartWidget from './CartWidget'; // COMPONENTE 
 import Nav from 'react-bootstrap/Nav'; //BOOTSTRAP NAV 
 
-//---------------------------------------------------------------------------------------------------
-const NavBar = () => {
-    
-    return (
+import {NavLink } from 'react-router-dom';
 
-        
+
+//---------------------------------------------------------------------------------------------------
+const NavBar = ({links}) => {
+
+    
+    return (        
         <>   
 
             {/* ///////////////
               BOOTSTRAP = "nav" 
             /////////////////*/}
        
-            <Nav activeKey="/home" onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}>
+            <Nav className='headerNav'>
 
-                <Nav.Item>
-                    <Nav.Link href="/home">Inicio</Nav.Link>
-                </Nav.Item>
-
-                <Nav.Item>
-                    <Nav.Link eventKey="link-1">otra pagina</Nav.Link>
-                </Nav.Item>
-
-                <Nav.Item>
-                    <Nav.Link eventKey="link-2">otra pagina 2</Nav.Link>
-                </Nav.Item>      
+                {/*mapeo la lista de links y lo imprimo.*/}
+                {links.map ((elemento) => { 
                     
+                    //imprimo cada link creado.
+                    return <NavLink key={elemento.id} to={elemento.href}> {elemento.name} </NavLink>      
+
+                })}                 
 
 
                 {/* //////

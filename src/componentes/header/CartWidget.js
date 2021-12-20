@@ -2,6 +2,8 @@
 //IMPORTS
 import React from 'react' // REACT
 
+import {NavLink} from "react-router-dom"
+
 
 //----------------------------------------------------------------------
 
@@ -14,8 +16,10 @@ function CartWidget() {
                 {/* ////////////
                 ICONO DE GOOGLE 
                 /////////// */}
-                <span className="material-icons">shopping_cart</span>
 
+                <NavLink to="/carrito">
+                    <span className="material-icons">shopping_cart</span>
+                </NavLink>
                 
             </>
 

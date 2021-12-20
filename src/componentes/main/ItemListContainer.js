@@ -33,6 +33,7 @@ function ItemListContainer({nombre}) {
 
                 //mi mista ya tiene sus productos
                 setLista (res)
+                console.log (res)
             })
 
     }, [])
