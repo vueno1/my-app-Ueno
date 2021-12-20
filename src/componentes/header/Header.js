@@ -1,6 +1,7 @@
 
 //IMPORTS
 import NavBar from "./NavBar" // COMPONENTE 
+import { NavLink } from "react-router-dom"
 
 
 //---------------------------------------------------------------------
@@ -12,7 +13,7 @@ const Header = ({links}) => {
         <>
             <header className= "header"> 
 
-                <h1>TIENDA</h1>
+                <NavLink to="/productos"><h1>Tienda</h1></NavLink>       
 
                 {/*//////
                 COMPONENTE

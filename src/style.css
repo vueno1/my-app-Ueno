@@ -10,6 +10,11 @@
     flex-direction: column;
 }
 
+.home {
+    padding: 100px 0;
+
+}
+
 /*/////////////
 HEADER STYLES 
 /////////////*/
@@ -19,6 +24,12 @@ HEADER STYLES
     background-color: grey;
     position: fixed;
     width: 100%;
+}
+
+.header h1 {
+    color: white;
+    text-decoration: none;
+    list-style-type: none;
 }
 
 .nav {
