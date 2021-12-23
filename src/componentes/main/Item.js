@@ -1,8 +1,8 @@
 import React from 'react'
-
+import {Link} from "react-router-dom"
 
 //recibo los props del padre → "articulo y precio"
-function Item({articulo, precio, image}) {
+function Item({item}) {
     
     
     return (
@@ -12,11 +12,12 @@ function Item({articulo, precio, image}) {
             {/* y los muestro en el DOM */}
                 <div className='styleItem'>
                     <div>
-                        <img src={image} alt="" />                
+                        <img src={item.image} alt="" />                
                     </div>
-                    <p> {articulo} </p>
-                    <p> USD {precio} </p>
-                    <button>+agregar</button>
+                    <p> {item.title} </p>
+                    <p> USD {item.price} </p>
+
+                    <Link to={`/producto/${item.id}`}>agregar</Link>                
                   
                 </div>
         

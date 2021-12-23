@@ -5,10 +5,13 @@ import React from 'react' //REACT
 import {useState, useEffect} from 'react'
 import ItemList from './ItemList'
 
+import { useParams } from 'react-router-dom'
+
 
 //----------------------------------------------------------------------------------
 function ItemListContainer({nombre}) {
 
+    const {id} = useParams ()
 
     //defino variables cargando, comienza en estado true.
     const [cargando, setCargando] = useState (true)
@@ -36,8 +39,8 @@ function ItemListContainer({nombre}) {
                 console.log (res)
             })
 
-    }, [])
- 
+    }, []) 
+
 
     return (
 

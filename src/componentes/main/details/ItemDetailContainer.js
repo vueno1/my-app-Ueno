@@ -1,51 +1,36 @@
 import React from 'react'
 import ItemDetail from './ItemDetail'
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
+//-----------------------------------------------------------------------------------
 
+function ItemDetailContainer() { 
+    
+    let [item, setItem] = useState ()
+    const {id} = useParams ()
 
-function ItemDetailContainer() {  
+    console.log ('id:' + id)
 
-    let [producto, setProducto] = useState ([])
+    useEffect(() => {   
+                    
+        fetch ('https://fakestoreapi.com/products')
 
-    useEffect ( () => {
+        .then ( (res) => res.json ())
+        .then ((res) => {
+           setItem (res)
+        })         
 
-        fetch ('https://fakestoreapi.com/products/1')
-
-            .then ( (res)=> res.json ())
-            .then ((res) => {
-
-                setTimeout (()=> {
-                    setProducto (res)
-                }, 2000)
-
-                console.log (res)
-
-            })
-
-    }, [])
+    }, [id])
 
     return (
 
         <>
-
-        <div className='divSeleccion'>
-
-            {producto.length === 0? (
-                <h3>{'⏳'} Cargando producto seleccionado....</h3>
-            ): (
-                
-                <ItemDetail producto= {producto}/>                  
-                
-            )}
-
-
-
-        </div>
-        
+            <ItemDetail producto={item} />        
         </>
         
     )
+    
 }
 
 export default ItemDetailContainer
