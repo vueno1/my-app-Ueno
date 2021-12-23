@@ -1,0 +1,23 @@
+Vale, no se si te falta hacer un push 
+o algo pero no veo en el repo la navegación, 
+
+es decir desde item debería haber un click que me lleve a 
+itemdetailcontainer, itemdetailcontainer debe hacer uso de 
+useParams para ver que id esta llegando, 
+en itemlistcontainer
+ estas usando el useParams pero no estas haciendo nada con el 
+ id que recibes parta mostrar alguna categoria, 
+ haz esos cambios
+  para poder aprobarte la entrega, saludos
+
+
+  si te deja entonces en el fecth le indicas 
+  que le pegue al endpoint que te de 
+  solo un producto con el id que estas buscando
+
+en caso que no te deje y 
+que si o si debas traer todos 
+los productos entonces los traes todos y 
+de esa data haces un find con el id que 
+te llega por useParams para quedarte 
+exclusivamente con ese producto particular

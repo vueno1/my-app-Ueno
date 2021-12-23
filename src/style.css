@@ -95,6 +95,18 @@ MAIN STYLES
     padding: 100px 0;
 }
 
+.itemDetail {
+    padding-top: 100px ;
+    display: flex ;
+    flex-direction: column;
+}
+
+.itemDetailImg {
+    display: flex;
+    height: 100px ;
+    overflow: hidden;
+}
+
 /*////////////
 FOOTER STYLES 
 ////////////*/

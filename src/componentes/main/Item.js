@@ -17,7 +17,7 @@ function Item({item}) {
                     <p> {item.title} </p>
                     <p> USD {item.price} </p>
 
-                    <Link to={`/producto/${item.id}`}>agregar</Link>                
+                    <Link to={`/producto/${item.id}`}>ver</Link>                
                   
                 </div>
         

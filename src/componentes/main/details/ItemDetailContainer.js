@@ -7,18 +7,22 @@ import { useParams } from 'react-router-dom'
 
 function ItemDetailContainer() { 
     
-    let [item, setItem] = useState ()
+    let [item, setItem] = useState ({})
     const {id} = useParams ()
-
-    console.log ('id:' + id)
 
     useEffect(() => {   
                     
-        fetch ('https://fakestoreapi.com/products')
+        fetch ('https://fakestoreapi.com/products/' + id)
 
         .then ( (res) => res.json ())
         .then ((res) => {
-           setItem (res)
+
+            setTimeout(() => {
+
+                setItem (res)     
+                
+            },  2000);
+          
         })         
 
     }, [id])
@@ -26,7 +30,11 @@ function ItemDetailContainer() {
     return (
 
         <>
-            <ItemDetail producto={item} />        
+
+            {
+                !item ? <h1>cargando...</h1> : <ItemDetail producto={item} />        
+            }
+        
         </>
         
     )

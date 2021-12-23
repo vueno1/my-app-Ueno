@@ -10,16 +10,30 @@ const ItemDetail = ({producto}) => {
         console.log("Soy onAdd desde ItemListContainer")
         console.log("Cantidad de items: " + cantidad)
         //setCantidad(cantidad)
-    } 
+    }  
     
-        return (
-            <div>
-                <h1>Detalle de producto</h1>
-                <p>Nombre: {} </p>
-                <p>Precio: ${/* producto.precio */}</p>
-                <ItemCount stock={5} initial={1} onAdd={onAdd} />
+    return (
+
+        <>
+        
+            <div className="itemDetail">
+                <h1> Detalle de producto </h1>
+
+                <p>Nombre: {producto.title} </p>
+                <p>Precio: $ {producto.price}</p>  
+                <div className="itemDetailImg">
+                    <img src={producto.image} alt="" />               
+                </div> 
+                
+                <div>
+
+                    <ItemCount stock={5} initial={1} onAdd={onAdd} />
+                </div>
             </div>
-        )
+        
+        </>
+
+    )
     
 }
 
