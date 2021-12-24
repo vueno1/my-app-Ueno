@@ -8,6 +8,8 @@ import { useParams } from 'react-router-dom'
 function ItemDetailContainer() { 
     
     let [item, setItem] = useState ({})
+    const [loading, setLoading] = useState (true)
+    
     const {id} = useParams ()
 
     useEffect(() => {   
@@ -19,7 +21,8 @@ function ItemDetailContainer() {
 
             setTimeout(() => {
 
-                setItem (res)     
+                setItem (res)  
+                setLoading (false)   
                 
             },  2000);
           
@@ -29,13 +32,7 @@ function ItemDetailContainer() {
 
     return (
 
-        <>
-
-            {
-                !item ? <h1>cargando...</h1> : <ItemDetail producto={item} />        
-            }
-        
-        </>
+        loading? <h1 className='itemDetailContainerH1'> Cargando...</h1> : <ItemDetail producto={item} />      
         
     )
     
