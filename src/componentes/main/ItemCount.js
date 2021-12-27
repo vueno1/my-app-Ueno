@@ -37,6 +37,7 @@ function ItemCount({stock, initial, onAdd }) {
 
     //funcion agregar cantidad al carrito
     const agregarCantidad = () => {
+        setContador (initial)
         onAdd (contador)
     }
 

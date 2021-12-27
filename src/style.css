@@ -96,10 +96,14 @@ MAIN STYLES
 }
 
 .itemDetail {
-    padding-top: 100px ;
     display: flex ;
     flex-direction: column;
+    background-color: aquamarine;
+    justify-content: center;
+    align-items: center;
+    margin: 200px;
 }
+
 
 .itemDetailImg {
     display: flex;
@@ -109,6 +113,12 @@ MAIN STYLES
 
 .itemDetailContainerH1 {
     padding-top: 100px;
+}
+
+.cantidad {
+    background-color: rgba(128, 128, 128, 0.185);
+    padding: 20px;
+    color: blue;
 }
 
 /*////////////
