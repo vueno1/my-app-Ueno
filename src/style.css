@@ -24,6 +24,7 @@ HEADER STYLES
     background-color: grey;
     position: fixed;
     width: 100%;
+    z-index: 2;
 }
 
 .header h1 {
@@ -51,8 +52,6 @@ MAIN STYLES
 //////////*/
 .main {
     padding: 1rem;
-    flex-grow: 1;
-
 }
 
 .divBotonesFuera {
@@ -79,46 +78,40 @@ MAIN STYLES
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
-.styleItem {
+.Cards {
+    margin: 20px;
+    align-items: center;
+    padding: 20px;
+}
+
+.cardBody {
+
+    align-items: center;
     display: flex;
     flex-direction: column;
-    background-color: rgba(128, 128, 128, 0.233);
-    border-radius: 5px;
-    margin: 10px;
+    padding: 20px;
 }
 
-.styleItem img {
-    height: 100px;
+.cardImg {
+    width: 50%;
 }
 
-.divSeleccion {
-    padding: 100px 0;
+.itemDetailImg img {
+    height: 150px;
 }
 
-.itemDetail {
-    display: flex ;
-    flex-direction: column;
-    background-color: aquamarine;
+.mainCards {
+    display: flex;
     justify-content: center;
     align-items: center;
-    margin: 200px;
 }
 
-
-.itemDetailImg {
-    display: flex;
-    height: 100px ;
-    overflow: hidden;
+.cardSeleccion {
+    margin: 100px;
 }
 
-.itemDetailContainerH1 {
+.mainDetalle {
     padding-top: 100px;
-}
-
-.cantidad {
-    background-color: rgba(128, 128, 128, 0.185);
-    padding: 20px;
-    color: blue;
 }
 
 /*////////////
@@ -129,6 +122,7 @@ FOOTER STYLES
     background-color: yellow;
     padding: 0.5rem 0;
     text-align: center;
+    margin-top: auto;
 }
 
 .carrito {

@@ -32,8 +32,17 @@ function ItemDetailContainer() {
 
     return (
 
-        loading? <h1 className='itemDetailContainerH1'> Cargando...</h1> : <ItemDetail producto={item} />      
+        <>        
+            <main className= "mainDetalle">
+                {
+                    
+                    loading? <h1 className='itemDetailContainerH1'> Cargando...{} </h1> : <ItemDetail producto={item} />      
+
+                }
+            </main>
         
+        </>
+
     )
     
 }

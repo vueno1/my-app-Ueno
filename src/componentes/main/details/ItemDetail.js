@@ -1,6 +1,7 @@
 import ItemCount from "../ItemCount"
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { Card, Button } from "react-bootstrap"
 
 //-----------------------------------------------------------------------------
 
@@ -32,22 +33,37 @@ const ItemDetail = ({producto}) => {
         return (
     
             <>
-                <div className="itemDetail">
 
-                    <h3> Detalle de producto </h3>
-    
-                    <p>Nombre: {producto.title} </p>
-                    <p>Precio: $ {producto.price}</p>
+                <main className="mainCards">
 
-                    <div className="itemDetailImg">
-                        <img src={producto.image} alt="" />               
-                    </div> 
-                    
-                    <div>
-                        <ItemCount stock={5} initial={1} onAdd={onAdd} />
-                    </div>
+                    <Card className="cardSeleccion" style={{ width: '18rem' }}>
 
-                </div>
+                        <Card.Body>
+
+                            <div className="cardBody">
+                                <Card.Title>Detalle de producto</Card.Title>
+
+                                <div className="itemDetailImg">
+                                    <img src={producto.image} alt="" />               
+                                </div> 
+
+                                <p>Nombre: {producto.title} </p>
+                                <Card.Text>
+                                <p>Precio: $ {producto.price}</p>
+                                </Card.Text>
+                            </div>
+
+                            <div>
+                                <ItemCount stock={5} initial={1} onAdd={onAdd} />
+                            </div>
+                        
+                        </Card.Body>
+                    </Card>
+
+                </main>
+
+
+               
             
             </>
     
@@ -55,30 +71,45 @@ const ItemDetail = ({producto}) => {
 
     } else { // sino, y mi estado "mostrar" cambia a false, entonces me muestra mi producto
         //con la cantidad de producto deseado. 
+        // y a su vez agrego el boton para redirigirme a carrito
 
         return (
     
             <>
-            
-                <div className="itemDetail">
 
-                    <h3> Detalle de producto </h3>
-    
-                    <p>Nombre: {producto.title} </p>
-                    <p>Precio: $ {producto.price}</p>  
+            <main className="mainCards">
 
-                    <div className="itemDetailImg">
-                        <img src={producto.image} alt="" />               
-                    </div> 
+                <Card className="cardSeleccion" style={{ width: '18rem' }}>
 
-                    <h6>cantidad en el carrito:</h6>
-                    <p className="cantidad"> {quantity} </p>
+                <Card.Body>
 
-                    <div>
-                         <Link to={"/carrito"}>ir al carrito</Link>
+                    <div className="cardBody">
+
+                        <Card.Title>Detalle de producto</Card.Title>
+
+                        <div className="itemDetailImg">
+                            <img src={producto.image} alt="" />               
+                        </div> 
+
+                        <p>Nombre: {producto.title} </p>
+                        <Card.Text>
+                        <p>Precio: $ {producto.price}</p>
+                        </Card.Text>
+                            
+                        <Link to={"/carrito"}>
+                            <Button variant="outline-info">ir al Carrito</Button>
+                        </Link>
+
                     </div>
-                 
-                </div>
+
+                </Card.Body>
+
+                </Card>
+
+            </main>
+
+            
+            
             
             </>
     
