@@ -6,6 +6,7 @@ import {useState, useEffect} from 'react'
 import ItemList from './ItemList'
 
 import { useParams } from 'react-router-dom'
+import { BeatLoader } from 'react-spinners'
 
 
 //----------------------------------------------------------------------------------
@@ -14,7 +15,7 @@ function ItemListContainer({nombre}) {
     const {id} = useParams ()
 
     //defino variables cargando, comienza en estado true.
-    const [cargando, setCargando] = useState (true)
+    const [loading, setLoading] = useState (true)
 
     //defino variables lista de productos, comienza en array vacio.
     const [lista, setLista] = useState ([])
@@ -32,7 +33,7 @@ function ItemListContainer({nombre}) {
             .then ((res)=> {
 
                 //seteo el estado de cargando a FALSE
-                setCargando (false)
+                setLoading (false)
 
                 //mi mista ya tiene sus productos
                 setLista (res)
@@ -47,14 +48,11 @@ function ItemListContainer({nombre}) {
 
         <>
             <main className= "main">
-                <h2>{nombre}</h2>
 
                 {/* en el caso que la lista este vacia: dira que esta cargando */}
-                {lista.length === 0? ( //si la cantidad de la lista es 0, entonces digo q esta cargando....
-                    <h1> {cargando}Cargando...{'⏳'} </h1>
-
-                ): ( //sino....muestro mis productos.
+                {loading? (<BeatLoader/>):(
                     <>
+                        <h2>{nombre}</h2>
                         <div className='styleContainer'>
                         {/*y si la lista esta completa, lo mando como prop a componente ItemList */}
                             <ItemList propiedad={lista} />

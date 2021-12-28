@@ -51,7 +51,7 @@ HEADER STYLES
 MAIN STYLES 
 //////////*/
 .main {
-    padding: 1rem;
+    padding-top: 100px;
 }
 
 .divBotonesFuera {
@@ -112,6 +112,10 @@ MAIN STYLES
 
 .mainDetalle {
     padding-top: 100px;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /*////////////

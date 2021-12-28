@@ -3,6 +3,9 @@ import ItemDetail from './ItemDetail'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
+import { BeatLoader } from 'react-spinners'
+
+
 //-----------------------------------------------------------------------------------
 
 function ItemDetailContainer() { 
@@ -34,9 +37,8 @@ function ItemDetailContainer() {
 
         <>        
             <main className= "mainDetalle">
-                {
-                    
-                    loading? <h1 className='itemDetailContainerH1'> Cargando...{} </h1> : <ItemDetail producto={item} />      
+                {                    
+                    loading? (<BeatLoader/>) : <ItemDetail producto={item} />     
 
                 }
             </main>

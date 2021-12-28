@@ -58,6 +58,7 @@ const ItemDetail = ({producto}) => {
                             </div>
                         
                         </Card.Body>
+
                     </Card>
 
                 </main>
@@ -92,10 +93,13 @@ const ItemDetail = ({producto}) => {
                         </div> 
 
                         <p>Nombre: {producto.title} </p>
+
                         <Card.Text>
-                        <p>Precio: $ {producto.price}</p>
+                            <p>Precio: $ {producto.price*quantity}</p>
                         </Card.Text>
                             
+                        <p> Cantidad:{quantity} </p>
+
                         <Link to={"/carrito"}>
                             <Button variant="outline-info">ir al Carrito</Button>
                         </Link>
