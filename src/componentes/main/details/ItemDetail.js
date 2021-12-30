@@ -47,9 +47,9 @@ const ItemDetail = ({producto}) => {
                                     <img src={producto.image} alt="" />               
                                 </div> 
 
-                                <p>Nombre: {producto.title} </p>
+                                <h3>Nombre: {producto.title} </h3>
                                 <Card.Text>
-                                <p>Precio: $ {producto.price}</p>
+                                <span>Precio: $ {producto.price}</span>
                                 </Card.Text>
                             </div>
 
@@ -92,13 +92,13 @@ const ItemDetail = ({producto}) => {
                             <img src={producto.image} alt="" />               
                         </div> 
 
-                        <p>Nombre: {producto.title} </p>
+                        <h3>Nombre: {producto.title} </h3>
 
                         <Card.Text>
-                            <p>Precio: $ {producto.price*quantity}</p>
+                            <span>Precio: $ {producto.price*quantity}</span>
                         </Card.Text>
                             
-                        <p> Cantidad:{quantity} </p>
+                        <span> Cantidad:{quantity} </span>
 
                         <Link to={"/carrito"}>
                             <Button variant="outline-info">ir al Carrito</Button>

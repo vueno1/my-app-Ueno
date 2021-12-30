@@ -27,8 +27,9 @@ HEADER STYLES
     z-index: 2;
 }
 
-.header h1 {
+.headerInicio {
     color: white;
+    padding-left: 20px;
     text-decoration: none;
     list-style-type: none;
 }

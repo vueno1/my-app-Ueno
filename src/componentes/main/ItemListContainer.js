@@ -19,38 +19,67 @@ function ItemListContainer({nombre}) {
 
     //defino variables lista de productos, comienza en array vacio.
     const [lista, setLista] = useState ([])
+ 
 
     //uso useEffect para esa funcion secundaria para obtener mis productos 
     useEffect ( () => {
 
-        //traigo mis productos con fetch 
-        fetch ('https://fakestoreapi.com/products')
+        if (id) {
             
-            //los parceo a JSON y espero.....
-            .then ((res) => res.json ())
+            //traigo mis productos con fetch 
+            fetch ('https://fakestoreapi.com/products')
+                
+                //los parceo a JSON y espero.....
+                .then ((res) => res.json ())
+    
+                //despues de la espera, obtengo mis resultados (res)
+                .then ((res)=> {                
+    
+                    //seteo el estado de cargando a FALSE
+                    setLoading (false)    
 
-            //despues de la espera, obtengo mis resultados (res)
-            .then ((res)=> {
+                    const listaFiltrada = res.filter (producto => producto.category === id)
+                    setLista (listaFiltrada)
 
-                //seteo el estado de cargando a FALSE
-                setLoading (false)
+                    console.log (lista)
+    
+                }
+                )
 
-                //mi mista ya tiene sus productos
-                setLista (res)
-                console.log (res)
-            })
+        } else {
 
-    }, []) 
+            //traigo mis productos con fetch 
+            fetch ('https://fakestoreapi.com/products')
+                
+                //los parceo a JSON y espero.....
+                .then ((res) => res.json ())
+    
+                //despues de la espera, obtengo mis resultados (res)
+                .then ((res)=> {                
+    
+                    //seteo el estado de cargando a FALSE
+                    setLoading (false)
+    
+                    //mi mista ya tiene sus productos
+                    setLista (res)   
 
-
-
+                    console.log (lista)
+    
+                }
+                )
+        }           
+            
+    }, [id])
+    
+        
     return (
-
+            
         <>
             <main className= "main">
 
                 {/* en el caso que la lista este vacia: dira que esta cargando */}
                 {loading? (<BeatLoader/>):(
+
                     <>
                         <h2>{nombre}</h2>
                         <div className='styleContainer'>

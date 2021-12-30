@@ -21,11 +21,12 @@ const App = () => {
 
     const links = [
 
-        {href: "/productos", name:"productos", id:1}, //link para todos los productos 
+        {href: "/productos", name:"all products", id:1}, //link para todos los productos 
         {href: "/categoria/electronics", name:"electronics", id:2}, //link para electronicas
         {href: "/categoria/jewelery", name:"jewelery", id:3}, // link para jewelery 
+        {href: "/categoria/men's clothing", name: "men's clothing", id:4},
+        {href: "/categoria/women's clothing", name: "women's clothing", id:5}
     ]
-
 
    return (
             <BrowserRouter>
