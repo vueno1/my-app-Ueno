@@ -76,7 +76,9 @@ MAIN STYLES
 
 .styleContainer {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
 }
 
 .Cards {
@@ -113,7 +115,7 @@ MAIN STYLES
 
 .mainDetalle {
     padding-top: 100px;
-    height: 85vh;
+    height: 87vh;
     display: flex;
     justify-content: center;
     align-items: center;

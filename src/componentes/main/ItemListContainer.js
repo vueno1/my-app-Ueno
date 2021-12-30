@@ -75,22 +75,29 @@ function ItemListContainer({nombre}) {
     return (
             
         <>
-            <main className= "main">
 
                 {/* en el caso que la lista este vacia: dira que esta cargando */}
-                {loading? (<BeatLoader/>):(
+               
+                {loading? ( 
+                    <main className= "mainDetalle">
+                        <BeatLoader/>
+                    </main>
+                ):(         
 
                     <>
-                        <h2>{nombre}</h2>
-                        <div className='styleContainer'>
-                        {/*y si la lista esta completa, lo mando como prop a componente ItemList */}
-                            <ItemList propiedad={lista} />
-                        </div>                    
+                        <main className='main'>
+
+                            <h2>{nombre}</h2>
+                            <div className='styleContainer'>
+                            {/*y si la lista esta completa, lo mando como prop a componente ItemList */}
+                                <ItemList propiedad={lista} />
+                            </div>                    
+
+                        </main>
                     </>
                 )              
                 }
 
-            </main>
         </> 
     )
 }
