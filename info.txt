@@ -1,0 +1,13 @@
+1- customprovider → importarlos en app.js
+
+2- click comprar → guardar en customprovider (producto y cantidad en objeto)
+dentro del array de productos agregados?
+
+3-customprovider → no debe tener duplicados.
+sino la cantidad agregada. 
+
+4-metodos: 
+    additem (item, quantity)
+    removeitem (itemid) → usa su id 
+    clear () → remover todos los items 
+    esta en carrito (id) → true o false. 

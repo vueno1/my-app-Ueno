@@ -5,7 +5,7 @@ import { useContexto } from './componentes/context/mi contexto'
 
 function Carrito() {
 
-    const {carrito} = useContexto ()
+    const {carrito, borrarDelCarrito, limpiarCarrito} = useContexto ()
     console.log (carrito)
 
     return (
@@ -13,8 +13,23 @@ function Carrito() {
 
         <div className='carrito'>
 
-            soy carrito
-            
+            soy carrito 
+
+            {carrito.length > 0 ? (
+                <ul>
+                    {carrito.map ((producto, indice) => {
+                        
+                        return <li key={indice}> 
+                        producto seleccionado = {producto.title} - 
+                        subtotal = ${producto.price*producto.cantidad} - 
+                        Cantidad: {producto.cantidad} 
+                        </li>
+                    })}
+
+                </ul>
+
+            ) : <p>No hay productos en el carrito</p> }
+
         </div>
     )
 }

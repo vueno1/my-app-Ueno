@@ -39,9 +39,7 @@ function ItemCount({stock, initial, onAdd }) {
     const agregarCantidad = () => {
         setContador (initial)
         onAdd (contador)
-    }
-
- 
+    } 
 
     return (
 

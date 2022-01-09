@@ -13,7 +13,7 @@ function CartWidget() {
     const {cantidadTotal} = useContexto ()
     //cantidadtotal lo traigo con el hook USECONTEXTO y lo pongo dentro del 
     //icono de carrito para que me marque el numero {cantidadTotal}
-    console.log (cantidadTotal)
+    console.log (cantidadTotal) // aca me da 0
     
     return (
         <div>

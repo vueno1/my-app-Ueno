@@ -3,9 +3,13 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import { Card, Button } from "react-bootstrap"
 
+import { useContexto } from "../../context/mi contexto"
+
 //-----------------------------------------------------------------------------
 
 const ItemDetail = ({producto}) => {
+
+    const {agregarAlCarrito} = useContexto ()
 
     console.log (producto)
 
@@ -23,7 +27,9 @@ const ItemDetail = ({producto}) => {
 
         setMostrar (false)  //al agregar producto (cantidad) cambia mi estado a false.
         setQuantity (cantidad) // al agregar, ingreso valor (cantidad) a la variable "quantity" 
-        // a traves de la funcion setQuantity.     
+        // a traves de la funcion setQuantity.  
+        
+        agregarAlCarrito (producto, cantidad)
 
     }  
     

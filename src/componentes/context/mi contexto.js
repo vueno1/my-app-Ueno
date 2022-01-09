@@ -1,4 +1,4 @@
-//mi contexto → no es un componente, no hace falta q vaya en mayusucula.
+//mi contexto → NO es un componente, no hace falta q vaya en mayusucula.
 //sino que tiene componentes customizados para que los use globalmente. 
 //como por ejemplo "useContexto"
 
@@ -6,23 +6,26 @@
 import {createContext, useContext, useState} from 'react' //importo hooks
 
 //2-
+// uso el createcontext () para crear el contexto, y le declaro una variable = CONTEXTO 
 const contexto = createContext () 
 
 //3-
 //el componente que me da el contexto es PROVIDER. 
-//y lo exporto para usarlo
+//es decir, si hago un console.log (las propiedades que me muestra "contexto" son muchas y una de ellas es PROVIDER)
+//saco ese componente para poder usarlo.
+//y lo exporto
 export const {Provider} = contexto
 
 //3-
-//creo una funcion que lo que hace es retornar un valor, q lo que me retorna es el valor que yo le hardcodie a "contexto"
-//esta funcion es lo que llamamos CUSTOM hook. → actua como un useState (), pero creado x nosotros
+//creo una funcion que lo que hace es retornar un valor, que sera el contexto que yo creé con CREATECONTEXT ()
+//esta funcion es lo que llamamos CUSTOM hook. → actua como un useState (), pero creado x nosotros.
 //a esta funcion la defino con una variable → USECONTEXTO
-//y lo exporto para poder usarlo en carrito y header.
-export const useContexto = () => { 
-     
-    return useContext (contexto) 
- 
+//y lo exporto para poder usarlo en en componente que lo necesite (en este caso: carrito, header, cartwidget)
+export const useContexto = () => {      
+    return useContext (contexto)  
 }
+
+//-------------------------------------------------------------------------
 
 //creo mi componente CUSTOMPROVIDER para poder utilizarlo globalmente.
 const CustomProvider = ({children}) => {
@@ -36,18 +39,20 @@ const CustomProvider = ({children}) => {
     const [carrito, setCarrito] = useState ([])
 
     const agregarAlCarrito = (producto, cantidad) => {
+
         //itemDetalil.js tiene toda esta informacion (producto+cantidad)
-        //itemDetail.js consume este contexto (a traves de esta funcion)
+        //itemDetail.js consume este contexto (a traves de esta funcion (meto agregaralcarrito (a,b) en onAdd))
         //esta funcion la ejecuto desde itemDetail.js
         //clickeo itemDitail.js [agregarAlCarrito] → eso viaja desde itemDetail.js hasta el contexto
-
         //copia del carrito y de ahi pushearlo
 
-        if (estaEnCarrito ()) {
+        const copia_producto = {...producto} // creo una copia de mi producto seleccionado
+        copia_producto.cantidad = cantidad //a esa copia le agrego una propiedad = cantidad
 
-        } else {
-            
-        }
+        setCarrito ([...carrito, copia_producto]) // uso la funcion setCarrito para cambiar del estado [VACIO] a [agrego copia del producto]
+        //tambien hago una copia de ese carrito para no modificar mi array original en CARRITO. 
+        setCantidadTotal (cantidadTotal + cantidad) //seteo la cantidad total, que se incializa en 0 hasta que me muestra cantidad elegida. 
+
     }
 
     const borrarDelCarrito = () => {
@@ -83,9 +88,7 @@ const CustomProvider = ({children}) => {
             {/*todo lo q esta dentro de provider es un prop = children*/}
             {children}
         </Provider>
-
     )
- 
 
 }
 
