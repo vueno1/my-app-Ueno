@@ -2,18 +2,23 @@
 //IMPORTS
 import NavBar from "./NavBar" // COMPONENTE 
 import { NavLink } from "react-router-dom"
+import { useContexto } from "../context/mi contexto"//importo el customHOok "usecontexto"
 
 
 //---------------------------------------------------------------------
 
 const Header = ({links}) => {
+
+
+    const {cantidadTotal} = useContexto () //este valor me lo traigo de mi contexto
+    console.log (cantidadTotal) //lo muestro en consola
     
     return (
 
         <>
             <header className= "header"> 
 
-                <NavLink to="/" className="headerInicio" >INICIO</NavLink>       
+                <NavLink to="/" className="headerInicio">home</NavLink>       
 
                 {/*//////
                 COMPONENTE

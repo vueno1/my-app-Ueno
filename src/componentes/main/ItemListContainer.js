@@ -85,9 +85,8 @@ function ItemListContainer({nombre}) {
                 ):(         
 
                     <>
-                        <main className='main'>
+                        <main className='main'>                            
 
-                            <h2>{nombre}</h2>
                             <div className='styleContainer'>
                             {/*y si la lista esta completa, lo mando como prop a componente ItemList */}
                                 <ItemList propiedad={lista} />

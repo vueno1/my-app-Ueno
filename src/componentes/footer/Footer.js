@@ -7,9 +7,9 @@ const Footer = () => {
 
             <footer className= "footer">
 
-                <h5>Game Store</h5>
-                <p>Direccion: XXXXX</p>
-                <p>Telefono: xxxx</p>
+                <h5>E-commerce</h5>
+                <p>Adress: XXXXX</p>
+                <p>Phone: xxxx</p>
             </footer>
         </>
     )

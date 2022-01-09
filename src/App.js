@@ -10,6 +10,8 @@ import ItemDetailContainer from "./componentes/main/details/ItemDetailContainer"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"; //ROUTER-DOM
 
+import CustomProvider from "./componentes/context/mi contexto";
+
 //BOOTSTRAP
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 
@@ -28,22 +30,27 @@ const App = () => {
         {href: "/categoria/women's clothing", name: "women's clothing", id:5}
     ]
 
-   return (
-            <BrowserRouter>
+   return (        
 
-                <Header links={links} />
-              
-                <Routes>
-                    <Route path= "/" element={<Home/>} />
-                    <Route path= "/productos" element={<ItemListContainer nombre={"E-COMMERCE"}/>} />
-                    <Route path= "/categoria/:id" element={<ItemListContainer nombre={"E-COMMERCE"}/>} />
-                    <Route path= "/producto/:id" element={<ItemDetailContainer/>} />
-                    <Route path= "/carrito" element= {<Carrito/>} />
-                </Routes>
+            <CustomProvider>
 
-                <Footer/>
+                {/* //TODO ESTO ES EL CHILDREN (PROP) DE CUSTOMPROVIDER */}
+                <BrowserRouter>
+                    <Header links={links} />
+                
+                    <Routes>
+                        <Route path= "/" element={<Home/>} />
+                        <Route path= "/productos" element={<ItemListContainer nombre={"E-COMMERCE"}/>} />
+                        <Route path= "/categoria/:id" element={<ItemListContainer nombre={"E-COMMERCE"}/>} />
+                        <Route path= "/producto/:id" element={<ItemDetailContainer/>} />
+                        <Route path= "/carrito" element= {<Carrito/>} />
+                    </Routes>
 
-            </BrowserRouter>
+                    <Footer/>
+                </BrowserRouter>
+                {/*/////////////////////////////////////////////////////////////// */}
+
+            </CustomProvider>
             
         )
         
