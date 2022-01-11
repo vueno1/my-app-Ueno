@@ -61,10 +61,7 @@ function ItemListContainer({nombre}) {
                     setLoading (false)
     
                     //mi mista ya tiene sus productos
-                    setLista (res)   
-
-                    console.log (lista)
-    
+                    setLista (res)       
                 }
                 )
         }           

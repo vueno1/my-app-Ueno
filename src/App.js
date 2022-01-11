@@ -12,6 +12,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"; //ROUTER-DOM
 
 import CustomProvider from "./componentes/context/mi contexto";
 
+
 //BOOTSTRAP
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 

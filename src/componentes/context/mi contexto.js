@@ -55,12 +55,27 @@ const CustomProvider = ({children}) => {
 
     }
 
-    const borrarDelCarrito = () => {
+    const borrarDelCarrito = (id) => { 
+        
+        const nuevoCarritoFiltrado = carrito.filter (item => item.id !== id && item.cantidad >1)
+        setCarrito (nuevoCarritoFiltrado)
+
+        if (nuevoCarritoFiltrado && cantidadTotal >0){
+        
+            setCantidadTotal (cantidadTotal - 1)
+            console.log (cantidadTotal)
+        
+            
+        } else {
+            console.log ("el carrito esta vacio")
+            setCarrito ([])     
+        }
 
     }
 
     const limpiarCarrito = () => {
         setCarrito ([])
+        setCantidadTotal (0)      
     }
 
     const estaEnCarrito = (id) => {

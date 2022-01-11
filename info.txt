@@ -7,7 +7,43 @@ dentro del array de productos agregados?
 sino la cantidad agregada. 
 
 4-metodos: 
-    additem (item, quantity)
+    additem (item, quantity) → FINISH!!!!
+
     removeitem (itemid) → usa su id 
+    
     clear () → remover todos los items 
     esta en carrito (id) → true o false. 
+
+//-------------------------------------------------------
+Recuerda que las cantidades se acumulan, 
+si borras un producto del carrito debes hacer 
+cantidadTotal - productoBorrar.cantidad 
+
+Buscas el prod q exista y q la cantidad sea mayor a 1
+Y le haces cantidad -1
+
+-----------------------------------------
+
+El estado de react es inmutable, 
+eso quiere decir que no puedes hacer 
+modificaciones directas sobre el, 
+se tiene que hacer una copia 
+de la propiedad que vas a modificar.
+
+--------------------------------------
+
+1-sacar uno de los objetos del array 
+2-volver a setearCarrito ("nuevoarraydelcarrito)
+3-const copiacarrito = [...carrito]
+4-a esta copiacarrito la puedo filtrar o buscar
+la cosa que tenga adentro, y eso seteo 
+
+setearCarrito (copiacarrito)
+siempre va la copia
+nunca va el original
+
+es lo mismo que hacer un slice 
+o .map .filter.
+
+//solo borrar un producto del carrito. 
+
