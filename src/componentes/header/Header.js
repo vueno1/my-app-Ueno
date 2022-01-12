@@ -11,7 +11,7 @@ const Header = ({links}) => {
 
 
     const {cantidadTotal} = useContexto () //este valor me lo traigo de mi contexto
-    console.log (cantidadTotal) //lo muestro en consola // aca me da 0
+    
     
     return (
 

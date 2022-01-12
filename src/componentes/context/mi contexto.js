@@ -38,6 +38,8 @@ const CustomProvider = ({children}) => {
     //funcion "setcarrito" que se encarga del cambio de estado de "carrito"
     const [carrito, setCarrito] = useState ([])
 
+
+    //1-
     const agregarAlCarrito = (producto, cantidad) => {
 
         //itemDetalil.js tiene toda esta informacion (producto+cantidad)
@@ -55,37 +57,34 @@ const CustomProvider = ({children}) => {
 
     }
 
-    const borrarDelCarrito = (id) => { 
+    //2-
+    const borrarDelCarrito = (id, cantidad) => { 
         
-        const nuevoCarritoFiltrado = carrito.filter (item => item.id !== id && item.cantidad >1)
-        setCarrito (nuevoCarritoFiltrado)
+        // creo una copia de mi carrito filtrando el id q no quiero.
+        const nuevoCarritoFiltrado = carrito.filter (item => item.id !== id)        
+        
+        if (cantidadTotal >0) {
+            //lo seteo en el estado
+            setCarrito (nuevoCarritoFiltrado)       
+            setCantidadTotal (cantidadTotal - cantidad)
 
-        if (nuevoCarritoFiltrado && cantidadTotal >0){
-        
-            setCantidadTotal (cantidadTotal - 1)
-            console.log (cantidadTotal)
-        
-            
         } else {
-            console.log ("el carrito esta vacio")
-            setCarrito ([])     
+            setCantidadTotal (0)
         }
-
     }
 
+    //3-
     const limpiarCarrito = () => {
         setCarrito ([])
         setCantidadTotal (0)      
     }
 
-    const estaEnCarrito = (id) => {
-
-        return //true o false 
-        //solo cambia la cantidad, no el array. 
-        //si el producto que agregaste ya esta en carrito, solo suma la cantidad 
-
+    //4-
+    const estaEnCarrito = (id) => {         
+        return carrito.some (item => item.id ===id)
     }
 
+    //5- creo una variable, que contenga todas esas funciones.
     const valorDelContexto = {
         cantidadTotal,
         carrito,

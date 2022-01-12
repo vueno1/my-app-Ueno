@@ -7,6 +7,8 @@ function Carrito() {
 
     const {carrito, borrarDelCarrito, limpiarCarrito} = useContexto ()
 
+    console.log (carrito)
+
     return (
 
 
@@ -16,22 +18,15 @@ function Carrito() {
                 <ul>
                     {carrito.map ((producto, indice) => {
                         
-                        return <>
-                            <li key={indice}> 
-                            producto seleccionado = {producto.title} - 
-                            subtotal = ${producto.price*producto.cantidad} - 
+                        return <li key={indice}>
+                            producto seleccionado = {producto.title} -
+                            subtotal = ${producto.price*producto.cantidad} -
                             Cantidad: {producto.cantidad} 
-                            </li>
-                        
-                            <button onClick={borrarDelCarrito} >borrar producto del carrito </button>                
-                        
-                        </>
-
-                                      
+                            <button onClick={() => borrarDelCarrito (producto.id, producto.cantidad)} >eliminar item</button></li>                                                
                         
                     })}
 
-                    <button onClick={limpiarCarrito}> limpiar todo el carrito </button>
+                    <button onClick={limpiarCarrito}> limpiar carrito </button>
                
 
                 </ul>

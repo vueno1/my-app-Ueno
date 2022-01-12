@@ -9,9 +9,10 @@ sino la cantidad agregada.
 4-metodos: 
     additem (item, quantity) → FINISH!!!!
 
-    removeitem (itemid) → usa su id 
+    removeitem (itemid) → usa su id  → FINISH (?)
     
-    clear () → remover todos los items 
+    clear () → remover todos los items → FINISH 
+    
     esta en carrito (id) → true o false. 
 
 //-------------------------------------------------------
