@@ -38,6 +38,8 @@ const CustomProvider = ({children}) => {
     //funcion "setcarrito" que se encarga del cambio de estado de "carrito"
     const [carrito, setCarrito] = useState ([])
 
+    const [precioTotal, setPrecioTotal] = useState (0)
+
 
     //1-
     const agregarAlCarrito = (producto, cantidad) => {
@@ -55,6 +57,12 @@ const CustomProvider = ({children}) => {
         //tambien hago una copia de ese carrito para no modificar mi array original en CARRITO. 
         setCantidadTotal (cantidadTotal + cantidad) //seteo la cantidad total, que se incializa en 0 hasta que me muestra cantidad elegida. 
 
+        //multiplico precio del producto x cantidad
+        //lo defino en una constante => precioPorCantidad 
+        //y ese resultado lo seteo en setPreciototal
+        const precioPorCantidad = copia_producto.price*cantidad
+        setPrecioTotal (precioTotal + precioPorCantidad)
+        
     }
 
     //2-
@@ -67,6 +75,17 @@ const CustomProvider = ({children}) => {
             //lo seteo en el estado
             setCarrito (nuevoCarritoFiltrado)       
             setCantidadTotal (cantidadTotal - cantidad)
+            
+            //recorro mi nuevo carrito filtrado, y lo mapeo para 
+            //sacarle la info del precio x la cantidad
+            //con ese resultado, lo seteo en setpreciototal
+            nuevoCarritoFiltrado.map ( (e) => {
+
+                const precioFinal = e.price*cantidad
+                console.log (precioFinal)
+                setPrecioTotal (precioFinal)
+            })
+            
 
         } else {
             setCantidadTotal (0)
@@ -76,22 +95,24 @@ const CustomProvider = ({children}) => {
     //3-
     const limpiarCarrito = () => {
         setCarrito ([])
-        setCantidadTotal (0)      
+        setCantidadTotal (0)   
+        setPrecioTotal (0)   
     }
 
     //4-
     const estaEnCarrito = (id) => {         
-        return carrito.some (item => item.id ===id)
+        return carrito.some (item => item.id === id)
     }
 
     //5- creo una variable, que contenga todas esas funciones.
     const valorDelContexto = {
-        cantidadTotal,
-        carrito,
-        agregarAlCarrito,
-        borrarDelCarrito,
-        limpiarCarrito,
-        estaEnCarrito
+        cantidadTotal, //esto va a carrito.js y cartwidge.js
+        carrito, //esto va a carrito.js
+        precioTotal, //esto va a carrito.js
+        agregarAlCarrito, //esto va a itemDetail.js 
+        borrarDelCarrito, //esto va a carrito.js
+        limpiarCarrito, //esto va a carrito.js
+        estaEnCarrito 
     }
 
 

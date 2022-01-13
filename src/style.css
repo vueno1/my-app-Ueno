@@ -85,6 +85,7 @@ MAIN STYLES
     margin: 20px;
     align-items: center;
     padding: 20px;
+
 }
 
 .cardBody {
@@ -115,7 +116,7 @@ MAIN STYLES
 
 .mainDetalle {
     padding-top: 100px;
-    height: 87vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -134,4 +135,32 @@ FOOTER STYLES
 
 .carrito {
     padding: 100px 0;
+    height: 100vh;
+}
+
+/*/////
+CARRITO 
+////////*/
+
+.card_carrito {
+    margin-top: 20px;
+}
+
+.carritoBotones {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.carritoPrecioFinal {
+    margin-top: 30px;
+
+}
+
+.carritoNoHayNada {
+    margin: 20px 0;
+}
+
+.divCarritoVacio {
+    height: 100vh;
 }

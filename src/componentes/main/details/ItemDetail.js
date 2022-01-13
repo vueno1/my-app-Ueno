@@ -29,7 +29,7 @@ const ItemDetail = ({producto}) => {
         setQuantity (cantidad) // al agregar, ingreso valor (cantidad) a la variable "quantity" 
         // a traves de la funcion setQuantity.  
         
-        agregarAlCarrito (producto, cantidad)
+        agregarAlCarrito (producto, cantidad) //esto viene de contexto
 
     }  
     
