@@ -17,12 +17,12 @@ function Item({item}) {
 
             <Card className='Cards'>
 
-                <Card.Img className='cardImg' variant="top" src={item.image}/>
+                <Card.Img className='cardImg' variant="top" src={item.imagen}/>
     
                 <Card.Body className='cardBody'>
                     
                     <Card.Title>{item.title}</Card.Title>
-                    <Card.Text>USD {item.price}</Card.Text>
+                    <Card.Text>USD {item.precio}</Card.Text>
                     
                     <Link to={`/producto/${item.id}`}>
                         <Button variant="outline-info">Ver Producto</Button>
