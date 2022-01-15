@@ -1,7 +1,6 @@
 
 
 //IMPORTS
-import React, { cloneElement } from 'react' //REACT 
 import {useState, useEffect} from 'react'
 import ItemList from './ItemList'
 
@@ -37,54 +36,110 @@ function ItemListContainer({nombre}) {
         //los parametros son (firestore = db y path = nombre de la coleccion (en este caso le puse PRODUCTOS))
         const productoCollection = collection (db, "productos")
         
-        //uso la funcion getDOcs para hacer el pedido de lo que me trajo collection
+
+        if (id) {
+
+            //uso la funcion getDOcs para hacer el pedido de lo que me trajo collection
+            // en este caso getDOCS el pedido lo hace a "productoCollection"
+            getDocs (productoCollection)
+    
+                //uso then porque me trae una promesa.
+                .then ( (resultado) => {
+    
+                    //como resultado de getDocs, me trae las siguientes propiedades:
+                    //docs - empty - metadata - query -size
+                    //la que voy a necesitar es docs, quien es la que tiene el array.
+                    const docs = resultado.docs
+                    
+                    //docs me trae como resultado un array con muchos de → "querysnapshot", y c/u de los 
+                    //querysnapshot no tiene propiedades sino que tiene un metodo → data ()
+    
+                    //para obtener cada uno de esos querysnapshot, mapeo "docs" y uso el metodo data ()
+                    //para obtener la data de cada querysnapshot, en este caso, mi propia base de datos.
+                    const lista = docs.map ((doc)=> {
+                        
+                        //como el numero random de identificacion q me dio firestore, no lo tengo incluido
+                        //lo voy a buscar mapeando mi array (doc.id)
+                        //lo meto en una constante "id" para luego pushearlo en una nuevo objeto, dentro de mi array.
+                        const id = doc.id
+    
+                        //mapeo docs y obtengo mi data, y lo meto en mi constante "data"
+                        const data = doc.data ()
+    
+                        //creo un nuevo objeto, con el nuevo numero de identificacion creado x firestore.
+                        const producto = {
+                            identificacion: id, //nueva propiedad identificacion
+                            ...data //copia de mi data
+                        }
+
+                        
+                        //es obligatorio return en map
+                        //retorno mi variable "producto" quien es la que tiene toda mi info.
+                        return producto
+                    })
+                    
+                    const listaFiltrada = lista.filter (producto => producto.categoria === id)
+                    //pero x consola muestro LISTA, quien es la que alberga todo el formateo.
+                    setLista (listaFiltrada)
+                    setLoading (false)
+    
+                })
+                
+                .catch ( (error) =>{
+                    console.log (error)
+                })
+
+        }   else {
+
+             //uso la funcion getDOcs para hacer el pedido de lo que me trajo collection
         // en este caso getDOCS el pedido lo hace a "productoCollection"
         getDocs (productoCollection)
 
-            //uso then porque me trae una promesa.
-            .then ( (resultado) => {
+        //uso then porque me trae una promesa.
+        .then ( (resultado) => {
 
-                //como resultado de getDocs, me trae las siguientes propiedades:
-                //docs - empty - metadata - query -size
-                //la que voy a necesitar es docs, quien es la que tiene el array.
-                const docs = resultado.docs
-                
-                //docs me trae como resultado un array con muchos de → "querysnapshot", y c/u de los 
-                //querysnapshot no tiene propiedades sino que tiene un metodo → data ()
-
-                //para obtener cada uno de esos querysnapshot, mapeo "docs" y uso el metodo data ()
-                //para obtener la data de cada querysnapshot, en este caso, mi propia base de datos.
-                const lista = docs.map ((doc)=> {
-                    
-                    //como el numero random de identificacion q me dio firestore, no lo tengo incluido
-                    //lo voy a buscar mapeando mi array (doc.id)
-                    //lo meto en una constante "id" para luego pushearlo en una nuevo objeto, dentro de mi array.
-                    const id = doc.id
-
-                    //mapeo docs y obtengo mi data, y lo meto en mi constante "data"
-                    const data = doc.data ()
-
-                    //creo un nuevo objeto, con el nuevo numero de identificacion creado x firestore.
-                    const producto = {
-                        identificacion: id, //nueva propiedad identificacion
-                        ...data //copia de mi data
-                    }
-
-                    //es obligatorio return en map
-                    //retorno mi variable "producto" quien es la que tiene toda mi info.
-                    return producto
-                })
-
-                //pero x consola muestro LISTA, quien es la que alberga todo el formateo.
-                setLista (lista)
-                setLoading (false)
-                console.log (lista)
-
-            })
+            //como resultado de getDocs, me trae las siguientes propiedades:
+            //docs - empty - metadata - query -size
+            //la que voy a necesitar es docs, quien es la que tiene el array.
+            const docs = resultado.docs
             
-            .catch ( (error) =>{
-                console.log (error)
+            //docs me trae como resultado un array con muchos de → "querysnapshot", y c/u de los 
+            //querysnapshot no tiene propiedades sino que tiene un metodo → data ()
+
+            //para obtener cada uno de esos querysnapshot, mapeo "docs" y uso el metodo data ()
+            //para obtener la data de cada querysnapshot, en este caso, mi propia base de datos.
+            const lista = docs.map ((doc)=> {
+                
+                //como el numero random de identificacion q me dio firestore, no lo tengo incluido
+                //lo voy a buscar mapeando mi array (doc.id)
+                //lo meto en una constante "id" para luego pushearlo en una nuevo objeto, dentro de mi array.
+                const id = doc.id
+
+                //mapeo docs y obtengo mi data, y lo meto en mi constante "data"
+                const data = doc.data ()
+
+                //creo un nuevo objeto, con el nuevo numero de identificacion creado x firestore.
+                const producto = {
+                    identificacion: id, //nueva propiedad identificacion
+                    ...data //copia de mi data
+                }
+
+
+                //es obligatorio return en map
+                //retorno mi variable "producto" quien es la que tiene toda mi info.
+                return producto
             })
+
+            //pero x consola muestro LISTA, quien es la que alberga todo el formateo.
+            setLista (lista)
+            setLoading (false)
+
+        })
+        
+        .catch ( (error) =>{
+            console.log (error)
+        })
+        }     
 
             /*
         if (id) {
