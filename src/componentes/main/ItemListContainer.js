@@ -35,6 +35,7 @@ function ItemListContainer({nombre}) {
         //creo una COLLECTION con nombre "productoCollection" para tener acceso a la coleccion dentro de mi "db"
         //los parametros son (firestore = db y path = nombre de la coleccion (en este caso le puse PRODUCTOS))
         const productoCollection = collection (db, "productos")
+        console.log (productoCollection)
         
 
         if (id) {
