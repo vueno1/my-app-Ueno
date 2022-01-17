@@ -48,3 +48,11 @@ o .map .filter.
 
 //solo borrar un producto del carrito. 
 
+//-----------------------------------------------------
+
+desafio cart view (tutor)
+
+para evitar repetir el carrito en el context verifica si el id del que quieres agregar ya existe con un find, 
+si existe usa un indexof para modificar solo la cantidad y si no existe entonces agregalo como uno nuevo
+
+//--------------------------------------------------------

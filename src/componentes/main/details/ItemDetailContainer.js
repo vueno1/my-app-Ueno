@@ -35,13 +35,12 @@ function ItemDetailContainer() {
         if (id) {
 
             const consulta = query (productosCollection, where ("id", "==", Number(id)))
-            console.log (consulta)
 
             getDocs (consulta)
     
                 .then ((resultado) =>{
                     const producto = resultado.docs
-                    console.log (producto)
+    
 
                     const productoId = producto.map ((doc)=>{
                         const id = doc.id

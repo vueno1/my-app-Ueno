@@ -44,15 +44,42 @@ const CustomProvider = ({children}) => {
     //1-
     const agregarAlCarrito = (producto, cantidad) => {
 
+
+        //console.log (producto) // el array agregado del producto
+        //console.log (cantidad) // la cantidad agregada
+        
         //itemDetalil.js tiene toda esta informacion (producto+cantidad)
         //itemDetail.js consume este contexto (a traves de esta funcion (meto agregaralcarrito (a,b) en onAdd))
         //esta funcion la ejecuto desde itemDetail.js
         //clickeo itemDitail.js [agregarAlCarrito] → eso viaja desde itemDetail.js hasta el contexto
         //copia del carrito y de ahi pushearlo
 
-        const copia_producto = {...producto} // creo una copia de mi producto seleccionado
-        copia_producto.cantidad = cantidad //a esa copia le agrego una propiedad = cantidad
 
+        //const copia_producto = {...producto} // creo una copia de mi producto seleccionado
+        
+        
+        const copia_producto = {
+            cantidad:cantidad,
+            ...producto
+        }
+         
+        console.log (copia_producto)
+
+        /*
+        setCarrito (copia_producto)
+        
+        //array = objeto + cantidad 
+
+        producto.map (e => {
+
+            const precioXCantidad = e.precio*cantidad
+            setPrecioTotal (precioXCantidad)
+            console.log (precioXCantidad)
+        })
+        
+        setCantidadTotal (cantidad)
+        */
+        
         setCarrito ([...carrito, copia_producto]) // uso la funcion setCarrito para cambiar del estado [VACIO] a [agrego copia del producto]
         //tambien hago una copia de ese carrito para no modificar mi array original en CARRITO. 
         setCantidadTotal (cantidadTotal + cantidad) //seteo la cantidad total, que se incializa en 0 hasta que me muestra cantidad elegida. 
@@ -60,35 +87,41 @@ const CustomProvider = ({children}) => {
         //multiplico precio del producto x cantidad
         //lo defino en una constante => precioPorCantidad 
         //y ese resultado lo seteo en setPreciototal
-        const precioPorCantidad = copia_producto.price*cantidad
-        setPrecioTotal (precioTotal + precioPorCantidad)
+
+        producto.map ( (e) => { return  setPrecioTotal (e.precio*cantidad)})
         
     }
 
     //2-
     const borrarDelCarrito = (id, cantidad) => { 
+
+        console.log (id) // codigo id 
+        console.log (cantidad) // cantidad de productos
         
         // creo una copia de mi carrito filtrando el id q no quiero.
         const nuevoCarritoFiltrado = carrito.filter (item => item.id !== id)        
         
-        if (cantidadTotal >0) {
+        if (cantidadTotal > 0) {
             //lo seteo en el estado
-            setCarrito (nuevoCarritoFiltrado)       
+            setCarrito (carrito - nuevoCarritoFiltrado)       
             setCantidadTotal (cantidadTotal - cantidad)
             
             //recorro mi nuevo carrito filtrado, y lo mapeo para 
             //sacarle la info del precio x la cantidad
             //con ese resultado, lo seteo en setpreciototal
-            nuevoCarritoFiltrado.map ( (e) => {
 
-                const precioFinal = e.price*cantidad
-                console.log (precioFinal)
-                setPrecioTotal (precioFinal)
+            
+            nuevoCarritoFiltrado.map ( (e, indice) => {
+
+                const precioFinal = e [indice].precio*cantidad
+                setPrecioTotal (precioTotal - precioFinal)
+                return precioFinal
             })
             
 
         } else {
             setCantidadTotal (0)
+            setCarrito ([])
         }
     }
 

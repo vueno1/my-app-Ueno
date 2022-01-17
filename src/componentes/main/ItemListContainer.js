@@ -35,8 +35,7 @@ function ItemListContainer({nombre}) {
         //creo una COLLECTION con nombre "productoCollection" para tener acceso a la coleccion dentro de mi "db"
         //los parametros son (firestore = db y path = nombre de la coleccion (en este caso le puse PRODUCTOS))
         const productoCollection = collection (db, "productos")
-        console.log (productoCollection)
-        
+       
 
         if (id) {
 
@@ -83,6 +82,7 @@ function ItemListContainer({nombre}) {
                     //pero x consola muestro LISTA, quien es la que alberga todo el formateo.
                     setLista (listaFiltrada)
                     setLoading (false)
+                    console.log (lista)
     
                 })
                 
@@ -92,7 +92,7 @@ function ItemListContainer({nombre}) {
 
         }   else {
 
-             //uso la funcion getDOcs para hacer el pedido de lo que me trajo collection
+        //uso la funcion getDOcs para hacer el pedido de lo que me trajo collection
         // en este caso getDOCS el pedido lo hace a "productoCollection"
         getDocs (productoCollection)
 
@@ -134,6 +134,7 @@ function ItemListContainer({nombre}) {
             //pero x consola muestro LISTA, quien es la que alberga todo el formateo.
             setLista (lista)
             setLoading (false)
+            console.log (lista)
 
         })
         
@@ -142,50 +143,7 @@ function ItemListContainer({nombre}) {
         })
         }     
 
-            /*
-        if (id) {
-
-            
-            //traigo mis productos con fetch 
-            fetch ('https://fakestoreapi.com/products')
-                
-                //los parceo a JSON y espero.....
-                .then ((res) => res.json ())
-    
-                //despues de la espera, obtengo mis resultados (res)
-                .then ((res)=> {                
-    
-                    //seteo el estado de cargando a FALSE
-                    setLoading (false)    
-
-                    const listaFiltrada = res.filter (producto => producto.category === id)
-                    setLista (listaFiltrada)
-
-                    console.log (lista)
-    
-                }
-                )
-
-        } else {
-
-            //traigo mis productos con fetch 
-            fetch ('https://fakestoreapi.com/products')
-                
-                //los parceo a JSON y espero.....
-                .then ((res) => res.json ())
-    
-                //despues de la espera, obtengo mis resultados (res)
-                .then ((res)=> {                
-    
-                    //seteo el estado de cargando a FALSE
-                    setLoading (false)
-    
-                    //mi mista ya tiene sus productos
-                    setLista (res)       
-                }
-                )
-        }           
-            */
+         
     }, [id])
     
         

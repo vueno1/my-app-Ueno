@@ -11,8 +11,6 @@ const ItemDetail = ({producto}) => {
 
     const {agregarAlCarrito} = useContexto ()
 
-    console.log (producto)
-
     //seteo un estado "mostrar" que el estado inicial es true, y al cambiar el estado pasa a ser false. 
     const [mostrar,setMostrar] = useState(true)
 

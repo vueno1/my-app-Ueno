@@ -23,7 +23,7 @@ const Header = ({links}) => {
                 {/*//////
                 COMPONENTE
                 ///////// */}
-                <NavBar links={links} /> {/* le paso a navbar los links creados */}
+                <NavBar links={links} cantidadTotal={cantidadTotal} /> {/* le paso a navbar los links creados */}
 
             </header>
 

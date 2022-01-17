@@ -14,6 +14,9 @@ function CartWidget() {
     //cantidadtotal lo traigo con el hook USECONTEXTO y lo pongo dentro del 
     //icono de carrito para que me marque el numero {cantidadTotal}
  
+    console.log (`cantidadTotal = ${cantidadTotal}`)
+
+
     
     return (
         <div>
