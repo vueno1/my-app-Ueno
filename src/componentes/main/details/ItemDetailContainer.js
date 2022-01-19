@@ -5,7 +5,8 @@ import { useParams } from 'react-router-dom'
 
 import { BeatLoader } from 'react-spinners'
 import { db } from '../../../firebase' // importo base de datos 
-import { collection, query, where, getDocs } from 'firebase/firestore' //importo las funciones que voy a necesitar.
+import { collection, doc, getDoc} from 'firebase/firestore' //importo las funciones que voy a necesitar.
+
 //collection para traerme la coleccion 
 
 //getDoc () => (01 parametro de tipo "documentReference") → resultado una promesa de tipo "DocumentSnapshot"
@@ -30,45 +31,28 @@ function ItemDetailContainer() {
     useEffect(() => {   
 
         const productosCollection = collection (db, "productos")
+        console.log (`mi coleccion es = `, productosCollection)
+       
+        const refDocument = doc(productosCollection, id)
+        console.log (`esto es el Document Reference=`, refDocument)
 
+        getDoc (refDocument)
+
+            .then ((resultado)=>{
+
+                console.log (`esto es un DocumentSnapshot=`, resultado)
+
+                setItem (resultado.data ())
+                setLoading (false)
+
+            })
+
+            .catch ((error) =>{
+
+
+            })
         
-        if (id) {
-
-            const consulta = query (productosCollection, where ("id", "==", Number(id)))
-
-            getDocs (consulta)
-    
-                .then ((resultado) =>{
-                    const producto = resultado.docs
-    
-
-                    const productoId = producto.map ((doc)=>{
-                        const id = doc.id
-                        const data = doc.data ()
-
-                        const producto = {
-                            id:id,
-                            ...data
-                        }
-
-                        return producto
-                    })
-
-                    setItem (productoId)
-                    setLoading (false)
-                    
-                })
-    
-                .catch ((error) =>{
-                    console.log (error)
-                })
-    
-            
-            
-        } else {
-            console.log ("no me muestra detalle")
-        }
-
+       
     }, [id])
 
     return (

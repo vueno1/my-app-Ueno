@@ -82,7 +82,7 @@ function ItemListContainer({nombre}) {
                     //pero x consola muestro LISTA, quien es la que alberga todo el formateo.
                     setLista (listaFiltrada)
                     setLoading (false)
-                    console.log (lista)
+                    console.log (listaFiltrada)
     
                 })
                 

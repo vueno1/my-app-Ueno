@@ -9,6 +9,8 @@ import { useContexto } from "../../context/mi contexto"
 
 const ItemDetail = ({producto}) => {
 
+    console.log (producto)
+
     const {agregarAlCarrito} = useContexto ()
 
     //seteo un estado "mostrar" que el estado inicial es true, y al cambiar el estado pasa a ser false. 
@@ -40,7 +42,7 @@ const ItemDetail = ({producto}) => {
 
                 <main className="mainCards">
 
-                    {producto.map (producto =>
+                    {/*producto.map (producto =>
                         
                         <Card className="cardSeleccion" style={{ width: '18rem' }}>
 
@@ -69,7 +71,7 @@ const ItemDetail = ({producto}) => {
                         
                         
                         
-                        )}
+                    )*/}
 
                 </main>
 
