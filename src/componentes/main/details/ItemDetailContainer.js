@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 
 import { BeatLoader } from 'react-spinners'
 import { db } from '../../../firebase' // importo base de datos 
-import { collection, doc, getDoc} from 'firebase/firestore' //importo las funciones que voy a necesitar.
+import { collection, doc, getDoc, query, getDocs, where} from 'firebase/firestore' //importo las funciones que voy a necesitar.
 
 //collection para traerme la coleccion 
 
@@ -26,32 +26,45 @@ function ItemDetailContainer() {
     const [loading, setLoading] = useState (true)
     
     const {id} = useParams ()
-
     
     useEffect(() => {   
 
-        const productosCollection = collection (db, "productos")
-        console.log (`mi coleccion es = `, productosCollection)
-       
-        const refDocument = doc(productosCollection, id)
-        console.log (`esto es el Document Reference=`, refDocument)
+        const productoCollection = collection (db, "productos")
 
-        getDoc (refDocument)
+        if (id) {
+            const consulta = query (productoCollection, where ("id", "==", Number(id)))
 
-            .then ((resultado)=>{
+            getDocs (consulta)
+            
+                .then ((resultado)=>{
+                    const docs = resultado.docs
 
-                console.log (`esto es un DocumentSnapshot=`, resultado)
+                    console.log (`esto es un querydocumentsnapshot =`, docs)    
+                    //como saco la info de docs, sin que sea una array?????
+                    //por ejemplo =>const id = producto[0].id
+                    
+                    const lista = docs.map ((doc) =>{
+                        const id = doc.id
+                        const data = doc.data ()
 
-                setItem (resultado.data ())
-                setLoading (false)
-
-            })
+                        const producto = {
+                            id:id,
+                            ...data
+                        }
+                        return producto
+                    })
+                    setItem (lista)
+                    setLoading (false)
+                })
 
             .catch ((error) =>{
-
-
+                console.log (error)
             })
-        
+
+        } else {
+            console.log ("no hace nada")
+        }
+
        
     }, [id])
 

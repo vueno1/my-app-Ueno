@@ -12,7 +12,7 @@ function Carrito() {
 
     const {carrito, borrarDelCarrito, limpiarCarrito, precioTotal} = useContexto ()
 
-    console.log (carrito)
+    console.log (`a carrito me llega esto =`,carrito)
     //console.log (borrarDelCarrito)
     //console.log (limpiarCarrito)
     //console.log (precioTotal)
@@ -20,9 +20,7 @@ function Carrito() {
 
 
     const finalizarCompra = () =>{
-
-        console.log ("guardando compra en base de datos...")
-
+        
         const ventasCollection = collection (db, "ventas")
 
         addDoc (ventasCollection, {
@@ -60,22 +58,23 @@ function Carrito() {
   
                     {carrito.map ((producto, indice) => {  
 
-                        console.log (`esto es el map =`, producto)
+                        //console.log (`esto es el map =`, producto)
 
                         //desestructuring valores de producto.
                         let {cantidad,...objeto} = producto
 
-                        console.log (`desestructuring a cantidad =`, cantidad)
-                        console.log (`desestructuring a objeto =`, objeto) // objeto = {0: {}}
+                        //console.log (`desestructuring a cantidad =`, cantidad)
+                        //console.log (`desestructuring a objeto =`, objeto) // objeto = {0: {}}
                         
                         const valores = Object.values (objeto)
-                        console.log (`esto es objeto.values = `,valores )                        
+                        //console.log (`esto es objeto.values = `,valores )                        
 
                         return (
 
 
                             valores.map ((prop) =>{
                                 
+                                //console.log (`esto es el id para borrar`,prop.id)
                                 return (
                                     <>  
                                         <Card className='card_carrito' key={indice}>

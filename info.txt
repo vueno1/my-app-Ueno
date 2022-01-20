@@ -115,3 +115,68 @@ o puedes dejarlo asi, no es comun pero tampoco es que esta mal, si lo cambias a 
         */
 
         //-----------------------------------------------------
+
+
+         if (id) {
+            const consulta = query (productoCollection, where ("id", "==", Number(id)))
+
+            getDocs (consulta)
+
+            
+            .then (({docs})=>{ //esto es const docs = resultado.docs
+
+                console.log (`esto es un querydocumentsnapshot con <documentdata> en forma array`, docs)
+                setItem (docs.map ((doc)=> ({...doc.data()}))) //docs lo mapeo y saco la data
+                setLoading (false)
+
+                
+            }) 
+            .catch ((error) =>{
+                console.log (error)
+            })
+                } else {
+                    console.log ("no hace nada")
+                }
+
+        }, [id])
+
+        //--------------------------------------------------------------------------
+
+         if (id) {
+            const consulta = query (productoCollection, where ("id", "==", Number(id)))
+
+            getDocs (consulta)
+            
+                .then ((resultado)=>{
+                    const docs = resultado.docs
+
+                    console.log (`esto es un querydocumentsnapshot =`, docs)    
+                    //como saco la info de docs, sin que sea una array?????
+                    //por ejemplo =>const id = producto[0].id
+                    
+                    const lista = docs.map ((doc) =>{
+                        const id = doc.id
+                        const data = doc.data ()
+
+                        const producto = {
+                            id:id,
+                            ...data
+                        }
+                        return producto
+                    })
+                    setItem (lista)
+                    setLoading (false)
+                })
+
+            .catch ((error) =>{
+                console.log (error)
+            })
+
+        } else {
+            console.log ("no hace nada")
+        }
+
+
+//------------------------------------------------------
+
+

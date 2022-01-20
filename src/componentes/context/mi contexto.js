@@ -64,56 +64,64 @@ const CustomProvider = ({children}) => {
 
         console.log (`INDICE a borrar = `, id) // codigo id 
         console.log (`CANTIDAD a borrar= `,cantidad) // cantidad de productos
-        
-        console.log (`esto es carrito = `,carrito)
 
-        carrito.map ((producto, indice) =>{
-
-            console.log (`producto`,producto) // {0:{...}, cantidad: 2}
-            console.log (`indice del producto = `, indice) // 0
-
-            if (indice) {
-
-                const productoFiltro = producto - producto [indice]
-                return productoFiltro
-                console.log (productoFiltro)
-
-            } else {
-               return console.log ("no hizo nada")
-
-            }           
-
-        })
-
+        console.log (`esto esta en carrito actualmente =`, carrito)
         
         /*
-        // creo una copia de mi carrito filtrando el id q no quiero.
-        const nuevoCarritoFiltrado = carrito.filter (item => console.log (item.id))    
-        
-        console.log (nuevoCarritoFiltrado) // [ {0: {...}, cantidad:}]
-        
-        if (cantidadTotal > 0) {
-            //lo seteo en el estado
-            setCarrito (carrito - nuevoCarritoFiltrado)       
+        carrito.map ((prop) =>{
+
+            let {cantidad,...objeto} = prop
+            console.log (`mis objetos son = `,objeto)  /// {0:{....}}
+            console.log (cantidad) // NUMERO
+
+            const id = objeto[0].id // NUMERO DE ID DEL CARRITO
+            console.log (`este es el id de mi carrito`,id)
+*/
+                
+            // creo una copia de mi carrito filtrando el id q no quiero.
+            const nuevoCarritoFiltrado = carrito.filter (item => item[0].id !== id)    
+            
+            console.log (nuevoCarritoFiltrado) // [ {0: {...}, cantidad:}]   
+
+            setCarrito (nuevoCarritoFiltrado)
             setCantidadTotal (cantidadTotal - cantidad)
+
+            /*
             
-            //recorro mi nuevo carrito filtrado, y lo mapeo para 
-            //sacarle la info del precio x la cantidad
-            //con ese resultado, lo seteo en setpreciototal
-
+            if (cantidadTotal > 0) {
+                //lo seteo en el estado
+                setCarrito (carrito - nuevoCarritoFiltrado)       
+                setCantidadTotal (cantidadTotal - cantidad)
+                
+                //recorro mi nuevo carrito filtrado, y lo mapeo para 
+                //sacarle la info del precio x la cantidad
+                //con ese resultado, lo seteo en setpreciototal
+    
+                
+                nuevoCarritoFiltrado.map ( (e) => {
+    
+                    if (id) {
+    
+                        const precioFinal = e.precio*cantidad
+                        setPrecioTotal (precioTotal - precioFinal)
+                        return precioFinal
+    
+                    } else {
+                        console.log ("no borra nada")
+                    }
+    
+                })            
+    
+            } else {
+                setCantidadTotal (0)
+                setCarrito ([])
+            }
             
-            nuevoCarritoFiltrado.map ( (e, indice) => {
-
-                const precioFinal = e [indice].precio*cantidad
-                setPrecioTotal (precioTotal - precioFinal)
-                return precioFinal
-            })            
-
-        } else {
-            setCantidadTotal (0)
-            setCarrito ([])
-        }
+       
+        })
         */
+        
+        
     }
 
     //3-

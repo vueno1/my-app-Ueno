@@ -42,7 +42,7 @@ const ItemDetail = ({producto}) => {
 
                 <main className="mainCards">
 
-                    {/*producto.map (producto =>
+                    {producto.map (producto =>
                         
                         <Card className="cardSeleccion" style={{ width: '18rem' }}>
 
@@ -71,7 +71,7 @@ const ItemDetail = ({producto}) => {
                         
                         
                         
-                    )*/}
+                    )}
 
                 </main>
 
