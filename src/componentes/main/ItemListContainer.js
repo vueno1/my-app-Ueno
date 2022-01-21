@@ -46,13 +46,13 @@ function ItemListContainer({nombre}) {
                 //uso then porque me trae una promesa.
                 .then ( (resultado) => {
 
-                    console.log (`esto es promise = querysnapshot`, resultado)
+                    //console.log (`esto es promise = querysnapshot`, resultado)
     
                     //como resultado de getDocs, me trae las siguientes propiedades:
                     //docs - empty - metadata - query -size
                     //la que voy a necesitar es docs, quien es la que tiene el array.
                     const docs = resultado.docs
-                    console.log (`esto muestra la categoria seleccionada = `,docs)
+                    //console.log (`esto muestra la categoria seleccionada = `,docs)
                     //ese array son llamados querysnapshot.
                     
                     //docs me trae como resultado un array con muchos de → "querysnapshot", y c/u de los 

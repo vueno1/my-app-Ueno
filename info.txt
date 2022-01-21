@@ -180,3 +180,10 @@ o puedes dejarlo asi, no es comun pero tampoco es que esta mal, si lo cambias a 
 //------------------------------------------------------
 
 
+
+import { useState, createContext, useContext } from "react";
+export const CartContext = createContext();
+export const useCart = () => useContext(CartContext);
+
+
+---------------------------------

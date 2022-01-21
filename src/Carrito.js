@@ -65,38 +65,22 @@ function Carrito() {
 
                         //console.log (`desestructuring a cantidad =`, cantidad)
                         //console.log (`desestructuring a objeto =`, objeto) // objeto = {0: {}}
-                        
-                        const valores = Object.values (objeto)
-                        //console.log (`esto es objeto.values = `,valores )                        
 
                         return (
-
-
-                            valores.map ((prop) =>{
-                                
-                                //console.log (`esto es el id para borrar`,prop.id)
-                                return (
                                     <>  
                                         <Card className='card_carrito' key={indice}>
-                                            <Card.Header> {prop.title}</Card.Header>
-                                            <Card.Header> CODIGO: {prop.id}</Card.Header>
+                                            <Card.Header> {objeto[0].title}</Card.Header>
+                                            <Card.Header> CODIGO: {objeto[0].id}</Card.Header>
                                             <Card.Body>
-                                            <Card.Title> SUBTOTAL = ${prop.precio*cantidad}</Card.Title>
+                                            <Card.Title> SUBTOTAL = ${objeto[0].precio*cantidad}</Card.Title>
                                                 <Card.Text>
                                                     CANTIDAD = {cantidad}        
                                                 </Card.Text>
-                                            <Button variant="primary" onClick={()=> borrarDelCarrito (prop.id, cantidad)} > eliminar item</Button>
+                                            <Button variant="primary" onClick={()=> borrarDelCarrito (objeto[0].id, cantidad)} > eliminar item</Button>
                                             </Card.Body>
                                         </Card>  
                                     </>
                                 )
-    
-                            })
-
-
-                        )
-
-
 
                         })}
                         
@@ -114,13 +98,8 @@ function Carrito() {
                                     <Button onClick={finalizarCompra} variant="primary">Terminar compra</Button>
                                 </Card.Body>                            
                             </Card>
-                            {/*
-                                <p> precio final $ : {precioTotal}</p>
-                                <Link variant="outline-info" to="/"> Terminar compra </Link>
-                                
-                            */}
-                            </div>
-                            
+                           
+                            </div>                            
                             
                 </ul>
                         

@@ -43,49 +43,70 @@ const CustomProvider = ({children}) => {
     //1-
     const agregarAlCarrito = (producto, cantidad) => {
 
-        console.log (`este es el producto agregado = `,producto)
-
-        const copiaProducto = {...producto}
-        copiaProducto.cantidad = cantidad
-        setCarrito ([...carrito, copiaProducto])
-
-        setCantidadTotal (cantidadTotal + cantidad) //seteo la cantidad total, que se incializa en 0 hasta que me muestra cantidad elegida. 
-
-        //multiplico precio del producto x cantidad
-        //lo defino en una constante => precioPorCantidad 
-        //y ese resultado lo seteo en setPreciototal
-
-
-        producto.map ( (e) => { 
-
-            const precioPorCantidad = e.precio*cantidad
-
-            setPrecioTotal (precioTotal + precioPorCantidad)
+        console.log (`este es el producto agregado = `,producto) // [{0:{....}}]
+        console.log (`esta es la cantidad agregada =` , cantidad) // numero
         
-        })       
+        const id = producto[0].id // a ese producto agregado le saco el id.
+        console.log (`esto es id = `, id )
+
+        if (estaEnCarrito (id)) { //y lo comparo aca, si el id coincide con el del carrito.
+
+            const copiaCarrito = [...carrito] // [{0:{...}, cantidad:numero}]
+            console.log (`esto es una copiacarrito`, copiaCarrito)
+
+            let match = copiaCarrito.find ((p) => p[0].id === producto[0].id)
+            match.cantidad = match.cantidad + cantidad
+            setCarrito (copiaCarrito) 
+
+
+        } else {
+
+            const copiaCarrito = [...carrito]
+            console.log (`copia carrito tiene = `, copiaCarrito)
+            
+            const copiaProducto = {...producto}
+            copiaProducto.cantidad = cantidad
+            setCarrito ([...carrito, copiaProducto])
+    
+        }
+
+
+        //recorro mi producto agregado, y obtengo el precio x cantidad para sumarlo a precio total.
+        producto.map ( (e) => {     
+            const precioPorCantidad = e.precio*cantidad    
+            setPrecioTotal (precioTotal + precioPorCantidad) // aca se puede poner math.round            
+        })                
+        
+        //la cantidad siempre suma igual, asi que no hace falta ponerlo dentro del condicional.
+        setCantidadTotal (cantidadTotal + cantidad) 
         
     }
 
     //2-
     const borrarDelCarrito = (id, cantidad) => { 
 
-        console.log (`INDICE a borrar = `, id) // codigo id 
-        console.log (`CANTIDAD a borrar= `,cantidad) // cantidad de productos
+        console.log (`me llega como parametro desde boton borraritem=`, id) // me llega el numero de item 
+        console.log (`me llega como parametro desde el boton borraritem= `,cantidad) // me llega la cantidad en numero
         console.log (`esto esta en carrito actualmente =`, carrito)
                 
-            // creo una copia de mi carrito filtrando el id q no quiero.
-            const nuevoCarritoFiltrado = carrito.filter (item => item[0].id !== id)    
-            
-            console.log (nuevoCarritoFiltrado) // [ {0: {...}, cantidad:}]   
-
-            setCarrito (nuevoCarritoFiltrado)
-            setCantidadTotal (cantidadTotal - cantidad)
-
-            nuevoCarritoFiltrado.map ((e) =>{
-                const precioFiltrado = e[0].precio*cantidad
-                setPrecioTotal (precioFiltrado)
-            })
+        // uso filter para filtrar solamente los productos diferentes al id.
+        const nuevoCarritoFiltrado = carrito.filter (item => item[0].id !== id)    
         
+        console.log (`esto es nuevcarritofiltrado`, nuevoCarritoFiltrado) 
+        // este console.log me muestra el objeto dentro del array asi → [ {0: {...}, cantidad:...}]  
+
+        setCarrito (nuevoCarritoFiltrado)
+        setCantidadTotal (cantidadTotal - cantidad) // esto es para cartwidget 
+
+        let sumaFiltrada = 0 //creo una variable con iniacializacion en 0
+
+        nuevoCarritoFiltrado.map ((e)=> {
+
+            const sumaDePreciosFiltrados = e[0].precio*cantidad
+            sumaFiltrada += sumaDePreciosFiltrados // a esa variable le adiciono las iteraciones de precio*cantidad que hay.
+        })
+
+        setPrecioTotal (sumaFiltrada) //la variable la seteo como precioFINAL.        
         
     }
 
@@ -97,8 +118,9 @@ const CustomProvider = ({children}) => {
     }
 
     //4-
-    const estaEnCarrito = (id) => {         
-        return carrito.some (item => item.id === id)
+    const estaEnCarrito = (id) => {    
+        //aca tener en cuenta que item solo tiene que buscar tambien indice x tener objeto dentro de objeto.     
+        return carrito.some (item => item[0].id === id) //si el id q me viene x parametro en agregaralcarrito coincide con el id del carrito.
     }
 
     //5- creo una variable, que contenga todas esas funciones.

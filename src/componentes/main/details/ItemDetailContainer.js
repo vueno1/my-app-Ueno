@@ -39,7 +39,7 @@ function ItemDetailContainer() {
                 .then ((resultado)=>{
                     const docs = resultado.docs
 
-                    console.log (`esto es un querydocumentsnapshot =`, docs)    
+                    //console.log (`esto es un querydocumentsnapshot =`, docs)    
                     //como saco la info de docs, sin que sea una array?????
                     //por ejemplo =>const id = producto[0].id
                     
