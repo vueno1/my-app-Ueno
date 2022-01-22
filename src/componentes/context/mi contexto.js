@@ -40,7 +40,6 @@ const CustomProvider = ({children}) => {
     const borrarDelCarrito = (id, cantidad, precio) => { 
 
         const nuevoCarritoFiltrado = carrito.filter (item => item[0].id !== id)
-        console.log (nuevoCarritoFiltrado)  
 
         setCarrito (nuevoCarritoFiltrado)
         setCantidadTotal (cantidadTotal - cantidad)

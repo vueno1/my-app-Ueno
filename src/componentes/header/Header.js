@@ -7,14 +7,10 @@ const Header = ({links}) => {
     const {cantidadTotal} = useContexto () 
     
     return (
-        <>
-            <header className= "header"> 
-
-                <NavLink to="/" className="headerInicio">home</NavLink>       
-                <NavBar links={links} cantidadTotal={cantidadTotal} /> 
-
-            </header>
-        </>
+        <div className= "header">
+            <NavLink to="/" className="headerInicio">home</NavLink>       
+            <NavBar links={links} cantidadTotal={cantidadTotal} />
+        </div>
     )
 }
 

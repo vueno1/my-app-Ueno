@@ -37,21 +37,19 @@ function Carrito() {
                 <ul>  
                     {carrito.map ((producto, indice) => {  
                         let {cantidad,...objeto} = producto
-
-                        return (
-                                    <>  
-                                        <Card className='card_carrito' key={indice}>
-                                            <Card.Header> {objeto[0].title}</Card.Header>
-                                            <Card.Header> CODIGO: {objeto[0].id}</Card.Header>
-                                            <Card.Body>
-                                            <Card.Title> SUBTOTAL = ${objeto[0].precio*cantidad}</Card.Title>
-                                                <Card.Text>
-                                                    CANTIDAD = {cantidad}        
-                                                </Card.Text>
-                                            <Button variant="primary" onClick={()=> borrarDelCarrito (objeto[0].id, cantidad, objeto[0].precio)} > eliminar item</Button>
-                                            </Card.Body>
-                                        </Card>  
-                                    </>
+                        return (                                     
+                                <Card className='card_carrito' key={objeto[0].id}>
+                                    <Card.Header> {objeto[0].title}</Card.Header>
+                                    <Card.Header> CODIGO: {objeto[0].id}</Card.Header>
+                                    <Card.Body>
+                                    <Card.Title> SUBTOTAL = ${objeto[0].precio*cantidad}</Card.Title>
+                                        <Card.Text>
+                                            CANTIDAD = {cantidad}        
+                                        </Card.Text>
+                                    <Button variant="primary" onClick={()=> borrarDelCarrito (objeto[0].id, cantidad, objeto[0].precio)} > eliminar item</Button>
+                                    </Card.Body>
+                                </Card> 
+                                    
                                 )
                         })}                        
                             <div className='carritoBotones'>
@@ -69,16 +67,14 @@ function Carrito() {
                             </div>                                                       
                 </ul>
                 ) : (                            
-                <>
-                    <div className='divCarritoVacio'>
-                        <Card className='carritoNoHayNada'>
-                            <Card.Body>No hay productos en el carrito</Card.Body>
-                        </Card>                    
-                        <Link to="/productos">sigo comprando</Link>                              
-                    </div>
-                </>
+                
+                <div className='divCarritoVacio'>
+                    <Card className='carritoNoHayNada'>
+                        <Card.Body>No hay productos en el carrito</Card.Body>
+                    </Card>                    
+                    <Link to="/productos">sigo comprando</Link>                              
+                </div>                
             )}
-
         </div>  
     )
     }

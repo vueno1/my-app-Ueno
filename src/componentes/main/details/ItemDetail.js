@@ -17,42 +17,41 @@ const ItemDetail = ({producto}) => {
     }  
     
     if (mostrar) {
-        return (    
-            <>
-                <main className="mainCards">
-                    {producto.map (producto =>                        
-                        <Card className="cardSeleccion" style={{ width: '18rem' }}>
-                            <Card.Body>
-                                <div className="cardBody">
-                                    <Card.Title>Detalle de producto</Card.Title>
+        return (   
+            
+            <main className="mainCards">
+                {producto.map (producto =>                        
+                    <Card className="cardSeleccion" style={{ width: '18rem' }} key={producto.id}>
+                        <Card.Body>
+                            <div className="cardBody">
+                                <Card.Title>Detalle de producto</Card.Title>
 
-                                    <div className="itemDetailImg">
-                                        <img src={producto.imagen} alt="" />               
-                                    </div> 
+                                <div className="itemDetailImg">
+                                    <img src={producto.imagen} alt="" />               
+                                </div> 
 
-                                    <h3>Nombre: {producto.title} </h3>
-                                    <Card.Text>
-                                    <span>Precio: $ {producto.precio}</span>
-                                    </Card.Text>
-                                </div>
+                                <h3>Nombre: {producto.title} </h3>
+                                <Card.Text>
+                                <span>Precio: $ {producto.precio}</span>
+                                </Card.Text>
+                            </div>
 
-                                <div>
-                                    <ItemCount stock={5} initial={1} onAdd={onAdd} />
-                                </div>                            
-                            </Card.Body>
-                        </Card>                        
-                    )}
-                </main>
-            </>    
+                            <div>
+                                <ItemCount stock={5} initial={1} onAdd={onAdd} />
+                            </div>                            
+                        </Card.Body>
+                    </Card>                        
+                )}
+            </main>
+          
         )
 
     } else { 
         
         return (    
-            <>
             <main className="mainCards">
                 {producto.map (producto =>
-                <Card className="cardSeleccion" style={{ width: '18rem' }}>
+                <Card className="cardSeleccion" style={{ width: '18rem' }} key={producto.id}>
                 <Card.Body>
                     <div className="cardBody">
                         <Card.Title>Detalle de producto</Card.Title>
@@ -71,8 +70,7 @@ const ItemDetail = ({producto}) => {
                 </Card.Body>
                 </Card>
                     )}
-            </main>
-            </>    
+            </main>  
         )
     }    
 }

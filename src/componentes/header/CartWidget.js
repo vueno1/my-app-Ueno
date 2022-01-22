@@ -6,13 +6,10 @@ function CartWidget() {
     const {cantidadTotal} = useContexto ()
 
     return (
-        
-        <>
-            <NavLink to="/carrito" >
-                <span className="material-icons">shopping_cart</span>
-                {cantidadTotal}  
-            </NavLink>                
-        </>        
+        <NavLink to="/carrito" >
+            <span className="material-icons">shopping_cart</span>
+            {cantidadTotal}  
+        </NavLink>                       
     )
 }
 

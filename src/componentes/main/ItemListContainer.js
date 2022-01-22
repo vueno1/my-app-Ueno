@@ -29,7 +29,6 @@ function ItemListContainer({nombre}) {
                             identificacion: id, 
                             ...data
                         }
-
                         return producto
                     })
                     
@@ -53,7 +52,6 @@ function ItemListContainer({nombre}) {
                             identificacion: id, 
                             ...data 
                         }
-
                         return producto
                     })
 
@@ -64,26 +62,26 @@ function ItemListContainer({nombre}) {
                 .catch ( (error) =>{
                     console.log (error)
                 })
-        }             
+        } 
+
     }, [id])
     
         
     return (         
         <>               
-            {loading? ( 
-                <main className= "mainDetalle">
-                    <BeatLoader/>
-                </main>
-            ):(         
-                <>
-                    <main className='main'>                            
-                        <div className='styleContainer'>
-                            <ItemList propiedad={lista} />
-                        </div>                    
-                    </main>
-                </>
-            )              
-            }
+        {loading? ( 
+            <main className= "mainDetalle">
+                <BeatLoader/>
+            </main>
+        ):(                    
+            <main className='main'>  
+                <h1>{nombre}</h1>                          
+                <div className='styleContainer'>
+                    <ItemList propiedad={lista} />
+                </div>                    
+            </main>
+        )              
+        }
 
         </> 
     )

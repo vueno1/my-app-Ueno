@@ -30,19 +30,17 @@ function ItemCount({stock, initial, onAdd }) {
     } 
 
     return (
-        <>
-            <div className= "divBotonesFuera">
-                <div className= "divBotones">       
-                    <Button onClick= {sumar} variant="info">+</Button>
-                    <p>{contador} </p>            
-                    <Button onClick= {restar} variant="info">-</Button>            
-                </div>
-
-                <div className= "divBotonAgregarCarrito">
-                    <Button onClick= {agregarCantidad} variant="outline-info">Agregar al Carrito </Button>
-                </div>              
+        <div className= "divBotonesFuera">
+            <div className= "divBotones">       
+                <Button onClick= {sumar} variant="info">+</Button>
+                <p>{contador} </p>            
+                <Button onClick= {restar} variant="info">-</Button>            
             </div>
-        </>
+
+            <div className= "divBotonAgregarCarrito">
+                <Button onClick= {agregarCantidad} variant="outline-info">Agregar al Carrito </Button>
+            </div>              
+        </div>
     )
 }
 

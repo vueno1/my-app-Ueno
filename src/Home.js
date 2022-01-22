@@ -1,19 +1,13 @@
 import React from 'react'
 
 
-function Home () {   
- 
+function Home () { 
 
     return (
-
         <main className='mainDetalle'>
-
             <div className='home'>
-
-                Bienvenido!
-        
+                Bienvenido!    
             </div>
-
         </main>
     )
 }

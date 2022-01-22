@@ -49,13 +49,13 @@ function ItemDetailContainer() {
     }, [id])
 
     return (
-        <>        
-            <main className= "mainDetalle">
-                {                    
-                    loading? (<BeatLoader/>) : <ItemDetail producto={item} />     
-                }
-            </main>        
-        </>
+           
+        <main className= "mainDetalle">
+            {                    
+                loading? (<BeatLoader/>) : <ItemDetail producto={item} />     
+            }
+        </main>        
+    
     )    
 }
 

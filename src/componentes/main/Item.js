@@ -4,8 +4,7 @@ import { Card, Button } from 'react-bootstrap'
 
 function Item({item}) {    
     
-    return (
-        <>        
+    return (        
             <Card className='Cards'>
                 <Card.Img className='cardImg' variant="top" src={item.imagen}/>    
                 <Card.Body className='cardBody'>                    
@@ -16,7 +15,6 @@ function Item({item}) {
                     </Link>            
                 </Card.Body>
             </Card>        
-        </>
     )
 }
 
