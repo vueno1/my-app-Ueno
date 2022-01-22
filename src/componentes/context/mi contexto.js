@@ -37,20 +37,17 @@ const CustomProvider = ({children}) => {
         setCantidadTotal (cantidadTotal + cantidad)         
     }
 
-    const borrarDelCarrito = (id, cantidad) => { 
+    const borrarDelCarrito = (id, cantidad, precio) => { 
 
-        const nuevoCarritoFiltrado = carrito.filter (item => item[0].id !== id)    
+        const nuevoCarritoFiltrado = carrito.filter (item => item[0].id !== id)
+        console.log (nuevoCarritoFiltrado)  
+
         setCarrito (nuevoCarritoFiltrado)
         setCantidadTotal (cantidadTotal - cantidad)
 
-        let sumaFiltrada = 0 
-        nuevoCarritoFiltrado.map ((e)=> {
+        const nuevoPrecioTotal = precioTotal - precio*cantidad
+        setPrecioTotal (nuevoPrecioTotal)
 
-            const sumaDePreciosFiltrados = e[0].precio*cantidad
-            sumaFiltrada += sumaDePreciosFiltrados
-        })
-
-        setPrecioTotal (sumaFiltrada)         
     }
 
     const limpiarCarrito = () => {

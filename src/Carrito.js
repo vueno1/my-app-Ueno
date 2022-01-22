@@ -48,7 +48,7 @@ function Carrito() {
                                                 <Card.Text>
                                                     CANTIDAD = {cantidad}        
                                                 </Card.Text>
-                                            <Button variant="primary" onClick={()=> borrarDelCarrito (objeto[0].id, cantidad)} > eliminar item</Button>
+                                            <Button variant="primary" onClick={()=> borrarDelCarrito (objeto[0].id, cantidad, objeto[0].precio)} > eliminar item</Button>
                                             </Card.Body>
                                         </Card>  
                                     </>
