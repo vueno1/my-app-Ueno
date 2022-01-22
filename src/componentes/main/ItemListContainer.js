@@ -35,9 +35,7 @@ function ItemListContainer({nombre}) {
                     
                     const listaFiltrada = lista.filter (producto => producto.categoria === id)
                     setLista (listaFiltrada)
-                    setLoading (false)
-                    console.log (listaFiltrada)
-    
+                    setLoading (false)    
                 })
                 
                 .catch ( (error) =>{
@@ -45,52 +43,43 @@ function ItemListContainer({nombre}) {
                 })
 
         }   else {
+                getDocs (productoCollection)
+                .then ( (resultado) => {
+                    const docs = resultado.docs
+                    const lista = docs.map ((doc)=> {
+                        const id = doc.id
+                        const data = doc.data ()
+                        const producto = {
+                            identificacion: id, 
+                            ...data 
+                        }
 
-        getDocs (productoCollection)
-        .then ( (resultado) => {
-            const docs = resultado.docs
-            const lista = docs.map ((doc)=> {
-                const id = doc.id
-                const data = doc.data ()
-                const producto = {
-                    identificacion: id, 
-                    ...data 
-                }
+                        return producto
+                    })
 
-                return producto
-            })
-
-            setLista (lista)
-            setLoading (false)
-            console.log (lista)
-
-        })
-        
-        .catch ( (error) =>{
-            console.log (error)
-        })
-        }     
-
-         
+                    setLista (lista)
+                    setLoading (false)
+                })
+                
+                .catch ( (error) =>{
+                    console.log (error)
+                })
+        }             
     }, [id])
     
         
-    return (
-            
+    return (         
         <>               
             {loading? ( 
                 <main className= "mainDetalle">
                     <BeatLoader/>
                 </main>
             ):(         
-
                 <>
                     <main className='main'>                            
-
                         <div className='styleContainer'>
                             <ItemList propiedad={lista} />
                         </div>                    
-
                     </main>
                 </>
             )              

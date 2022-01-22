@@ -8,10 +8,7 @@ function Carrito() {
 
     const {carrito, borrarDelCarrito, limpiarCarrito, precioTotal} = useContexto ()
 
-    console.log (`a carrito me llega esto =`,carrito)
-
-    const finalizarCompra = () =>{
-        
+    const finalizarCompra = () =>{        
         const ventasCollection = collection (db, "ventas")
 
         addDoc (ventasCollection, {
@@ -23,11 +20,8 @@ function Carrito() {
             },
 
             items: carrito,
-
             date: serverTimestamp (),
-
             total: precioTotal
-
         })
 
         .then ((resultado) => {
@@ -37,16 +31,10 @@ function Carrito() {
         limpiarCarrito ()
     }
 
-
-    return (
-
-        
+    return (        
         <div className='carrito'>
-
-            {carrito.length > 0 ? (
-                
-                <ul>
-  
+            {carrito.length > 0 ? (                
+                <ul>  
                     {carrito.map ((producto, indice) => {  
                         let {cantidad,...objeto} = producto
 
@@ -65,49 +53,34 @@ function Carrito() {
                                         </Card>  
                                     </>
                                 )
-
-                        })}
-                        
+                        })}                        
                             <div className='carritoBotones'>
                             <Button onClick={limpiarCarrito} variant="outline-info">limpiar carrito</Button>
                             </div>
                             
-                            <div className='carritoPrecioFinal'>
-                            
-                            <Card className="text-center">
-                            <Card.Header>PRECIO FINAL: </Card.Header>
-                            <Card.Body>
-                                    <Card.Title> ${precioTotal}</Card.Title>
-                                
-                                    <Button onClick={finalizarCompra} variant="primary">Terminar compra</Button>
-                                </Card.Body>                            
-                            </Card>
-                           
-                            </div>                            
-                            
+                            <div className='carritoPrecioFinal'>                            
+                                <Card className="text-center">
+                                <Card.Header>PRECIO FINAL: </Card.Header>
+                                <Card.Body>
+                                        <Card.Title> ${precioTotal}</Card.Title>                                    
+                                        <Button onClick={finalizarCompra} variant="primary">Terminar compra</Button>
+                                    </Card.Body>                            
+                                </Card>                            
+                            </div>                                                       
                 </ul>
-                        
-                        ) : (
-                            
-                            <>
+                ) : (                            
+                <>
+                    <div className='divCarritoVacio'>
+                        <Card className='carritoNoHayNada'>
+                            <Card.Body>No hay productos en el carrito</Card.Body>
+                        </Card>                    
+                        <Link to="/productos">sigo comprando</Link>                              
+                    </div>
+                </>
+            )}
 
-                <div className='divCarritoVacio'>
-
-                    <Card className='carritoNoHayNada'>
-                        <Card.Body>No hay productos en el carrito</Card.Body>
-                    </Card>
-                    
-                    <Link to="/productos">sigo comprando</Link>              
-                
-
-                </div>
-            </>
-
-)
-}
-
-</div>
-)
-}
+        </div>  
+    )
+    }
 
 export default Carrito

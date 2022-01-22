@@ -24,24 +24,17 @@ const CustomProvider = ({children}) => {
             match.cantidad = match.cantidad + cantidad
             setCarrito (copiaCarrito) 
 
-        } else {
-
-            const copiaCarrito = [...carrito]
-            console.log (`copia carrito tiene = `, copiaCarrito)
-            
+        } else {            
             const copiaProducto = {...producto}
             copiaProducto.cantidad = cantidad
-            setCarrito ([...carrito, copiaProducto])
-    
+            setCarrito ([...carrito, copiaProducto])    
         }
 
         producto.map ( (e) => {     
             const precioPorCantidad = e.precio*cantidad    
             setPrecioTotal (precioTotal + precioPorCantidad)             
         })                
-
-        setCantidadTotal (cantidadTotal + cantidad) 
-        
+        setCantidadTotal (cantidadTotal + cantidad)         
     }
 
     const borrarDelCarrito = (id, cantidad) => { 

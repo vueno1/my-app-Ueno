@@ -40,15 +40,14 @@ const ItemDetail = ({producto}) => {
                                     <ItemCount stock={5} initial={1} onAdd={onAdd} />
                                 </div>                            
                             </Card.Body>
-                        </Card>
-                        
+                        </Card>                        
                     )}
                 </main>
             </>    
         )
 
     } else { 
-
+        
         return (    
             <>
             <main className="mainCards">

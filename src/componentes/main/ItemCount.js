@@ -9,8 +9,7 @@ function ItemCount({stock, initial, onAdd }) {
     const sumar = () => {
 
         if (contador >= stock ) {
-            console.log ("no hay mas stock!")
-            
+            console.log ("no hay mas stock!")            
         } else {
             setContador ( contador + 1)
         }

@@ -46,8 +46,6 @@ function ItemDetailContainer() {
         } else {
             console.log ("no hace nada")
         }
-
-       
     }, [id])
 
     return (
