@@ -1,23 +1,14 @@
-
 import { useContexto } from './componentes/context/mi contexto'
 import { Link } from 'react-router-dom'
 import { Card, Button } from 'react-bootstrap'
 import { db } from './firebase'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 
-
-//------------------------------------------------------------------------------
-
 function Carrito() {
 
     const {carrito, borrarDelCarrito, limpiarCarrito, precioTotal} = useContexto ()
 
     console.log (`a carrito me llega esto =`,carrito)
-    //console.log (borrarDelCarrito)
-    //console.log (limpiarCarrito)
-    //console.log (precioTotal)
-
-
 
     const finalizarCompra = () =>{
         
@@ -57,14 +48,7 @@ function Carrito() {
                 <ul>
   
                     {carrito.map ((producto, indice) => {  
-
-                        //console.log (`esto es el map =`, producto)
-
-                        //desestructuring valores de producto.
                         let {cantidad,...objeto} = producto
-
-                        //console.log (`desestructuring a cantidad =`, cantidad)
-                        //console.log (`desestructuring a objeto =`, objeto) // objeto = {0: {}}
 
                         return (
                                     <>  

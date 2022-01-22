@@ -1,8 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    
+    box-sizing: border-box;    
 }
 
 #root {
@@ -15,9 +14,6 @@
 
 }
 
-/*/////////////
-HEADER STYLES 
-/////////////*/
 .header {
     display: flex;
     flex: row;
@@ -48,9 +44,6 @@ HEADER STYLES
 }
 
 
-/*//////////
-MAIN STYLES 
-//////////*/
 .main {
     padding-top: 100px;
 }
@@ -122,10 +115,6 @@ MAIN STYLES
     align-items: center;
 }
 
-/*////////////
-FOOTER STYLES 
-////////////*/
-
 .footer {
     background-color: yellow;
     padding: 0.5rem 0;
@@ -138,9 +127,6 @@ FOOTER STYLES
     height: 100vh;
 }
 
-/*/////
-CARRITO 
-////////*/
 
 .card_carrito {
     margin-top: 20px;
