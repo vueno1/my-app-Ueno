@@ -8,6 +8,8 @@ import ItemDetailContainer from "./componentes/main/details/ItemDetailContainer"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CustomProvider from "./componentes/context/mi contexto";
 import 'bootstrap/dist/css/bootstrap.min.css'; 
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
     
@@ -33,6 +35,8 @@ const App = () => {
                         <Route path= "/producto/:id" element={<ItemDetailContainer/>} />
                         <Route path= "/carrito" element= {<Carrito/>} />
                     </Routes>
+
+                    <ToastContainer />
 
                     <Footer/>
 

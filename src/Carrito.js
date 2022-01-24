@@ -1,8 +1,10 @@
 import { useContexto } from './componentes/context/mi contexto'
 import { Link } from 'react-router-dom'
-import { Card, Button } from 'react-bootstrap'
+import { Card, Button} from 'react-bootstrap'
 import { db } from './firebase'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
+import Formulario from './Formulario'
+
 
 function Carrito() {
 
@@ -31,9 +33,12 @@ function Carrito() {
         limpiarCarrito ()
     }
 
-    return (        
+    return (    
+            
         <div className='carrito'>
-            {carrito.length > 0 ? (                
+
+            <h1>Sector Carrito:</h1>
+            {carrito.length > 0 ? (                    
                 <ul>  
                     {carrito.map ((producto, indice) => {  
                         let {cantidad,...objeto} = producto
@@ -68,11 +73,13 @@ function Carrito() {
                 </ul>
                 ) : (                            
                 
-                <div className='divCarritoVacio'>
+                <div className='divCarritoVacio'>                    
                     <Card className='carritoNoHayNada'>
                         <Card.Body>No hay productos en el carrito</Card.Body>
                     </Card>                    
-                    <Link to="/productos">sigo comprando</Link>                              
+                    <Link to="/productos" >
+                        <Button variant="info">Seguir la Compra</Button>
+                    </Link>                              
                 </div>                
             )}
         </div>  

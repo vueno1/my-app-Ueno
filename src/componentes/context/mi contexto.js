@@ -32,7 +32,7 @@ const CustomProvider = ({children}) => {
 
         producto.map ( (e) => {     
             const precioPorCantidad = e.precio*cantidad    
-            setPrecioTotal (precioTotal + precioPorCantidad)             
+            return setPrecioTotal (precioTotal + precioPorCantidad)             
         })                
         setCantidadTotal (cantidadTotal + cantidad)         
     }

@@ -50,7 +50,7 @@ function ItemDetailContainer() {
 
     return (
            
-        <main className= "mainDetalle">
+        <main>
             {                    
                 loading? (<BeatLoader/>) : <ItemDetail producto={item} />     
             }

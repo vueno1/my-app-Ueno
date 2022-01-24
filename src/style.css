@@ -7,11 +7,26 @@
 #root {
     display: flex;
     flex-direction: column;
+    height: 100vh;
+}
+
+.mainDetalle {
+    display: flex;
+    justify-content: center;
+    
 }
 
 .home {
-    padding: 100px 0;
+    padding-top: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 
+.btn_ingrese {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .header {
@@ -107,14 +122,6 @@
     margin: 100px;
 }
 
-.mainDetalle {
-    padding-top: 100px;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .footer {
     background-color: yellow;
     padding: 0.5rem 0;
@@ -124,9 +131,7 @@
 
 .carrito {
     padding: 100px 0;
-    height: 100vh;
 }
-
 
 .card_carrito {
     margin-top: 20px;
@@ -148,5 +153,7 @@
 }
 
 .divCarritoVacio {
-    height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
 }

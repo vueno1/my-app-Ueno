@@ -1,6 +1,8 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button' 
 import { useState } from "react";  
+import { toast } from 'react-toastify';
+
 
 function ItemCount({stock, initial, onAdd }) {
 
@@ -29,6 +31,23 @@ function ItemCount({stock, initial, onAdd }) {
         onAdd (contador)
     } 
 
+    const toastify = () => {
+        toast ('✔️ agregado a carrito', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        })
+    }
+
+    const mensaje = () => {
+        agregarCantidad ()
+        toastify ()
+    }
+
     return (
         <div className= "divBotonesFuera">
             <div className= "divBotones">       
@@ -38,7 +57,8 @@ function ItemCount({stock, initial, onAdd }) {
             </div>
 
             <div className= "divBotonAgregarCarrito">
-                <Button onClick= {agregarCantidad} variant="outline-info">Agregar al Carrito </Button>
+                <Button onClick= {mensaje} variant="outline-info">Agregar al Carrito </Button>
+             
             </div>              
         </div>
     )
