@@ -1,37 +1,12 @@
 import { useContexto } from './componentes/context/mi contexto'
 import { Link } from 'react-router-dom'
 import { Card, Button} from 'react-bootstrap'
-import { db } from './firebase'
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 import Formulario from './Formulario'
 
 
 function Carrito() {
 
-    const {carrito, borrarDelCarrito, limpiarCarrito, precioTotal} = useContexto ()
-
-    const finalizarCompra = () =>{        
-        const ventasCollection = collection (db, "ventas")
-
-        addDoc (ventasCollection, {
-
-            buyer: {
-                name: "Vale",
-                lastName: "Ueno",
-                email: "valeria@gmail.com"
-            },
-
-            items: carrito,
-            date: serverTimestamp (),
-            total: precioTotal
-        })
-
-        .then ((resultado) => {
-            console.log (resultado)
-        })
-
-        limpiarCarrito ()
-    }
+    const {carrito, borrarDelCarrito, limpiarCarrito, precioTotal} = useContexto ()   
 
     return (    
             
@@ -58,26 +33,29 @@ function Carrito() {
                                 )
                         })}                        
                             <div className='carritoBotones'>
-                            <Button onClick={limpiarCarrito} variant="outline-info">limpiar carrito</Button>
+                            <Button onClick={limpiarCarrito} variant="outline-info">Limpiar todo Carrito</Button>
                             </div>
+
                             
                             <div className='carritoPrecioFinal'>                            
                                 <Card className="text-center">
                                 <Card.Header>PRECIO FINAL: </Card.Header>
                                 <Card.Body>
                                         <Card.Title> ${precioTotal}</Card.Title>                                    
-                                        <Button onClick={finalizarCompra} variant="primary">Terminar compra</Button>
                                     </Card.Body>                            
                                 </Card>                            
                             </div>                                                       
+                            <Formulario/>
+
                 </ul>
                 ) : (                            
                 
                 <div className='divCarritoVacio'>                    
                     <Card className='carritoNoHayNada'>
                         <Card.Body>No hay productos en el carrito</Card.Body>
-                    </Card>                    
-                    <Link to="/productos" >
+                    </Card>  
+
+                    <Link to="/productos" className='btn_seguirCompra'>
                         <Button variant="info">Seguir la Compra</Button>
                     </Link>                              
                 </div>                

@@ -140,20 +140,31 @@
 .carritoBotones {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin: 20px 0;
 }
 
 .carritoPrecioFinal {
-    margin-top: 30px;
-
+    margin: 30px 0;
 }
 
 .carritoNoHayNada {
     margin: 20px 0;
+    text-align: center;
 }
 
 .divCarritoVacio {
    display: flex;
    flex-direction: column;
    justify-content: center;
+}
+
+.btn_seguirCompra {
+    text-align: center;
+}
+
+.formulario_input {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    border-top: black dotted;
 }
