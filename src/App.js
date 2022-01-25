@@ -30,8 +30,8 @@ const App = () => {
                 
                     <Routes>
                         <Route path= "/" element={<Home/>} />
-                        <Route path= "/productos" element={<ItemListContainer nombre={"E-COMMERCE"}/>} />
-                        <Route path= "/categoria/:id" element={<ItemListContainer nombre={"E-COMMERCE"}/>} />
+                        <Route path= "/productos" element={<ItemListContainer nombre={"TIENDA ONLINE"}/>} />
+                        <Route path= "/categoria/:id" element={<ItemListContainer nombre={"TIENDA ONLINE"}/>} />
                         <Route path= "/producto/:id" element={<ItemDetailContainer/>} />
                         <Route path= "/carrito" element= {<Carrito/>} />
                     </Routes>
