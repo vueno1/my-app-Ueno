@@ -239,3 +239,16 @@
 #email {
     margin-bottom: 10px;
 }
+
+.googlePic {
+    height: 40px;
+    margin-right: 5px;
+}
+
+.googleIcon {
+    height: 40px;
+}
+
+.divGoogleProfile {
+    display: flex;
+}
