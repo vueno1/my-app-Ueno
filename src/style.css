@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -10,10 +12,26 @@
     height: 100vh;
 }
 
+.tiendaOnlineClass {
+    font-family:'Bebas Neue', cursive;
+    font-size: 80px;
+    padding-left: 20px;
+}
+
+.categorias {
+    font-family: 'Bebas Neue', cursive;
+    color:rgb(138, 238, 245) ;
+    font-size: 50px;
+    padding-left: 20px;
+}
+
 .mainDetalle {
     display: flex;
-    justify-content: center;
-    
+    justify-content: center;    
+}
+
+.detalleProducto {
+    font-family: 'Bebas Neue', cursive;
 }
 
 .home {
@@ -97,7 +115,6 @@
 }
 
 .cardBody {
-
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -108,25 +125,59 @@
     width: 50%;
 }
 
+.itemTitle {
+    font-size: 15px;
+}
+
+.itemPrecio {
+    font-style: italic;
+    font-weight: bolder;
+    background-color: rgb(138, 238, 245);
+}
+
 .itemDetailImg img {
-    height: 150px;
+    height: 200px;
 }
 
 .mainCards {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 50px;
 }
 
 .cardSeleccion {
-    margin: 100px;
+    margin: 50px;
+}
+
+.detalleTituloProducto {
+    font-size:medium;
+    padding:20px;
+}
+
+.detallePrecio {
+    font-size: 20px;
+    background-color: rgb(138, 238, 245);
+    border-radius: 5px;
+    padding: 5px;  
+}
+
+.detalleCarrito {
+    padding: 10px 0 20px 0;
 }
 
 .footer {
-    background-color: yellow;
+    background-color: rgb(138, 238, 245);;
     padding: 0.5rem 0;
     text-align: center;
     margin-top: auto;
+}
+
+.tituloCarrito {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 50px;
+    padding-left: 20px;
 }
 
 .carrito {
@@ -144,7 +195,7 @@
 }
 
 .carritoPrecioFinal {
-    margin: 30px 0;
+    margin: 50px 0;
 }
 
 .carritoNoHayNada {
@@ -162,9 +213,29 @@
     text-align: center;
 }
 
+.tituloPrecioFinal {
+    font-family:'Bebas Neue', cursive;
+    font-size: 30px;
+}
+
+.precioFinal {
+    font-size: xx-large;
+    background-color: yellow;
+    padding: 20px;
+}
+
 .formulario_input {
     display: flex;
     flex-direction: column;
     padding: 20px 0;
     border-top: black dotted;
+}
+
+#nombre {
+    margin-bottom: 10px;
+
+}
+
+#email {
+    margin-bottom: 10px;
 }

@@ -61,18 +61,17 @@ const Formulario = () => {
         <div>
 
             <div className='formulario_input'>
-                <h3>Complete sus datos: </h3>
+                <h3>Complete sus datos antes de finalizar la compra: </h3>
                 <input id='nombre' type="text" placeholder='Nombre' onChange={guardarNombre}/>
                 <input id='email' type="text" placeholder='Apellido' onChange={guardarApellido} />
                 <input id='telefono' type="text" placeholder='Email' onChange={guardarEmail}/>
             </div>
 
             <Card>
-            <Card.Body>                                 
-            <Button onClick={finalizarCompra} variant="primary">Terminar compra</Button>
-            </Card.Body>                            
-            </Card>             
-
+                <Card.Body>                                 
+                    <Button onClick={finalizarCompra} variant="info">Terminar compra</Button>
+                </Card.Body>                            
+            </Card> 
             
         </div>
     );

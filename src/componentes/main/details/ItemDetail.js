@@ -20,22 +20,19 @@ const ItemDetail = ({producto}) => {
         return (   
             
             <main className="mainCards">
+                <h1>Detalle del Producto:</h1>
                 {producto.map (producto =>                        
                     <Card className="cardSeleccion" style={{ width: '18rem' }} key={producto.id}>
                         <Card.Body>
                             <div className="cardBody">
-                                <Card.Title>Detalle de producto</Card.Title>
-
                                 <div className="itemDetailImg">
                                     <img src={producto.imagen} alt="" />               
                                 </div> 
-
-                                <h3>Nombre: {producto.title} </h3>
+                                <h3 className="detalleTituloProducto">"{producto.title}"</h3>
                                 <Card.Text>
-                                <span>Precio: $ {producto.precio}</span>
+                                <span className="detallePrecio">Precio: $ {producto.precio}</span>
                                 </Card.Text>
                             </div>
-
                             <div>
                                 <ItemCount stock={5} initial={1} onAdd={onAdd} />
                             </div>                            
@@ -50,26 +47,26 @@ const ItemDetail = ({producto}) => {
         
         return (    
             <main className="mainCards">
+                <h1>Producto seleccionado:</h1>
                 {producto.map (producto =>
-                <Card className="cardSeleccion" style={{ width: '18rem' }} key={producto.id}>
-                <Card.Body>
-                    <div className="cardBody">
-                        <Card.Title>Detalle de producto</Card.Title>
-                        <div className="itemDetailImg">
-                            <img src={producto.imagen} alt="" />               
-                        </div> 
-                        <h3>Nombre: {producto.title} </h3>
-                        <Card.Text>
-                            <span>Precio: $ {producto.precio*quantity}</span>
-                        </Card.Text>                            
-                        <span> Cantidad:{quantity} </span>
-                        <Link to={"/carrito"}>
-                            <Button variant="outline-info">ir al Carrito</Button>
-                        </Link>
-                    </div>
-                </Card.Body>
-                </Card>
-                    )}
+                    <Card className="cardSeleccion" style={{ width: '18rem' }} key={producto.id}>
+                    <Card.Body>
+                        <div className="cardBody">
+                            <div className="itemDetailImg">
+                                <img src={producto.imagen} alt="" />               
+                            </div> 
+                            <h3 className="detalleTituloProducto">"{producto.title}"</h3>
+                            <Card.Text>
+                                <span className="detallePrecio">Precio: $ {producto.precio*quantity}</span>
+                            </Card.Text>                            
+                            <span className="detalleCarrito"> 🛒: {quantity} </span>
+                            <Link to={"/carrito"}>
+                                <Button variant="outline-info">ir al Carrito</Button>
+                            </Link>
+                        </div>
+                    </Card.Body>
+                    </Card>
+                )}
             </main>  
         )
     }    

@@ -12,21 +12,21 @@ function Carrito() {
             
         <div className='carrito'>
 
-            <h1>Sector Carrito:</h1>
+            <h1 className='tituloCarrito'>Sector Carrito:</h1>
             {carrito.length > 0 ? (                    
                 <ul>  
                     {carrito.map ((producto, indice) => {  
                         let {cantidad,...objeto} = producto
                         return (                                     
                                 <Card className='card_carrito' key={objeto[0].id}>
-                                    <Card.Header> {objeto[0].title}</Card.Header>
-                                    <Card.Header> CODIGO: {objeto[0].id}</Card.Header>
+                                    <Card.Header>Nombre del producto: "{objeto[0].title}"</Card.Header>
+                                    <Card.Header> Código del producto: #{objeto[0].id}</Card.Header>
                                     <Card.Body>
-                                    <Card.Title> SUBTOTAL = ${objeto[0].precio*cantidad}</Card.Title>
+                                    <Card.Title> Subtotal: ${objeto[0].precio*cantidad}</Card.Title>
                                         <Card.Text>
-                                            CANTIDAD = {cantidad}        
+                                        🛒: {cantidad}        
                                         </Card.Text>
-                                    <Button variant="primary" onClick={()=> borrarDelCarrito (objeto[0].id, cantidad, objeto[0].precio)} > eliminar item</Button>
+                                    <Button variant="info" onClick={()=> borrarDelCarrito (objeto[0].id, cantidad, objeto[0].precio)} > eliminar item</Button>
                                     </Card.Body>
                                 </Card> 
                                     
@@ -39,9 +39,9 @@ function Carrito() {
                             
                             <div className='carritoPrecioFinal'>                            
                                 <Card className="text-center">
-                                <Card.Header>PRECIO FINAL: </Card.Header>
+                                <Card.Header className='tituloPrecioFinal'>PRECIO FINAL: </Card.Header>
                                 <Card.Body>
-                                        <Card.Title> ${precioTotal}</Card.Title>                                    
+                                        <Card.Title className='precioFinal'> ${precioTotal.toFixed(2)}</Card.Title>                                    
                                     </Card.Body>                            
                                 </Card>                            
                             </div>                                                       
@@ -52,7 +52,7 @@ function Carrito() {
                 
                 <div className='divCarritoVacio'>                    
                     <Card className='carritoNoHayNada'>
-                        <Card.Body>No hay productos en el carrito</Card.Body>
+                        <Card.Body>No hay productos en el carrito 😑</Card.Body>
                     </Card>  
 
                     <Link to="/productos" className='btn_seguirCompra'>

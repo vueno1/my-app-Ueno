@@ -75,9 +75,10 @@ function ItemListContainer({nombre}) {
             </main>
         ):(                    
             <main className='main'>  
-                <h1>{nombre}</h1>                          
+                <h1 className='tiendaOnlineClass'>{nombre}</h1>   
+                <h3 className='categorias'>{id}</h3>                       
                 <div className='styleContainer'>
-                    <ItemList propiedad={lista} />
+                    <ItemList propiedad={lista}/>
                 </div>                    
             </main>
         )              
