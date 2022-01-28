@@ -17,20 +17,19 @@ const ItemDetail = ({producto}) => {
     }  
     
     if (mostrar) {
-        return (   
-            
+        return (               
             <main className="mainCards">
-                <h1>Detalle del Producto:</h1>
+                <h1 className="detalleTitulos">Detalle del Producto:</h1>
                 {producto.map (producto =>                        
                     <Card className="cardSeleccion" style={{ width: '18rem' }} key={producto.id}>
                         <Card.Body>
                             <div className="cardBody">
                                 <div className="itemDetailImg">
-                                    <img src={producto.imagen} alt="" />               
+                                    <img className="detalleImg" src={producto.imagen} alt="" />               
                                 </div> 
                                 <h3 className="detalleTituloProducto">"{producto.title}"</h3>
                                 <Card.Text>
-                                <span className="detallePrecio">Precio: $ {producto.precio}</span>
+                                <span className="detallePrecio">Precio: $ {producto.precio.toFixed(2)}</span>
                                 </Card.Text>
                             </div>
                             <div>
@@ -39,25 +38,23 @@ const ItemDetail = ({producto}) => {
                         </Card.Body>
                     </Card>                        
                 )}
-            </main>
-          
+            </main>          
         )
 
-    } else { 
-        
+    } else {         
         return (    
             <main className="mainCards">
-                <h1>Producto seleccionado:</h1>
+                <h1 className="detalleTitulos">Producto seleccionado:</h1>
                 {producto.map (producto =>
                     <Card className="cardSeleccion" style={{ width: '18rem' }} key={producto.id}>
                     <Card.Body>
                         <div className="cardBody">
-                            <div className="itemDetailImg">
-                                <img src={producto.imagen} alt="" />               
+                            <div>
+                                <img className="detalleImg" src={producto.imagen} alt="" />               
                             </div> 
                             <h3 className="detalleTituloProducto">"{producto.title}"</h3>
                             <Card.Text>
-                                <span className="detallePrecio">Precio: $ {producto.precio*quantity}</span>
+                                <span className="detallePrecio">Precio: $ {(producto.precio*quantity).toFixed(2)}</span>
                             </Card.Text>                            
                             <span className="detalleCarrito"> 🛒: {quantity} </span>
                             <Link to={"/carrito"}>

@@ -19,49 +19,52 @@ function ItemListContainer({nombre}) {
 
             getDocs (productoCollection)
     
-                .then ( (resultado) => {
-                    const docs = resultado.docs
-                    const lista = docs.map ((doc)=> {
-                        
-                        const id = doc.id
-                        const data = doc.data ()
-                        const producto = {
-                            identificacion: id, 
-                            ...data
-                        }
-                        return producto
-                    })
+            .then ( (resultado) => {
+                const docs = resultado.docs
+                
+                const lista = docs.map ((doc)=> {
                     
-                    const listaFiltrada = lista.filter (producto => producto.categoria === id)
-                    setLista (listaFiltrada)
-                    setLoading (false)    
+                    const id = doc.id
+                    const data = doc.data ()
+                    const producto = {
+                        identificacion: id, 
+                        ...data
+                    }
+                    return producto
                 })
                 
-                .catch ( (error) =>{
-                    console.log (error)
-                })
+                const listaFiltrada = lista.filter (producto => producto.categoria === id)
+                setLista (listaFiltrada)
+                setLoading (false)    
+            })
+            
+            .catch ((error) =>{
+                console.log (error)
+            })
 
         }   else {
-                getDocs (productoCollection)
-                .then ( (resultado) => {
-                    const docs = resultado.docs
-                    const lista = docs.map ((doc)=> {
-                        const id = doc.id
-                        const data = doc.data ()
-                        const producto = {
-                            identificacion: id, 
-                            ...data 
-                        }
-                        return producto
-                    })
+            getDocs (productoCollection)
 
-                    setLista (lista)
-                    setLoading (false)
+            .then ( (resultado) => {
+                const docs = resultado.docs
+
+                const lista = docs.map ((doc)=> {
+                    const id = doc.id
+                    const data = doc.data ()
+                    const producto = {
+                        identificacion: id, 
+                        ...data 
+                    }
+                    return producto
                 })
-                
-                .catch ( (error) =>{
-                    console.log (error)
-                })
+
+                setLista (lista)
+                setLoading (false)
+            })
+            
+            .catch ( (error) =>{
+                console.log (error)
+            })
         } 
 
     }, [id])

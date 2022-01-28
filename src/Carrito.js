@@ -22,7 +22,7 @@ function Carrito() {
                                     <Card.Header>Nombre del producto: "{objeto[0].title}"</Card.Header>
                                     <Card.Header> Código del producto: #{objeto[0].id}</Card.Header>
                                     <Card.Body>
-                                    <Card.Title> Subtotal: ${objeto[0].precio*cantidad}</Card.Title>
+                                    <Card.Title> Subtotal: ${(objeto[0].precio*cantidad).toFixed(2)}</Card.Title>
                                         <Card.Text>
                                         🛒: {cantidad}        
                                         </Card.Text>

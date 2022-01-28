@@ -11,7 +11,17 @@ function ItemCount({stock, initial, onAdd }) {
     const sumar = () => {
 
         if (contador >= stock ) {
-            console.log ("no hay mas stock!")            
+
+            toast ('✋ límite de stock', {
+                position: "bottom-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })            
+            
         } else {
             setContador ( contador + 1)
         }
@@ -20,7 +30,9 @@ function ItemCount({stock, initial, onAdd }) {
     const restar = () => {
 
         if (contador <= initial) {
+            setContador (0)
             console.log ("no apriete el boton!")
+
         } else {
             setContador (contador -1)
         }
@@ -33,7 +45,7 @@ function ItemCount({stock, initial, onAdd }) {
 
     const toastify = () => {
         toast ('✔️ agregado a carrito', {
-        position: "top-right",
+        position: "bottom-right",
         autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,

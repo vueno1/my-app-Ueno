@@ -43,9 +43,8 @@ function ItemDetailContainer() {
                 console.log (error)
             })
 
-        } else {
-            console.log ("no hace nada")
-        }
+        } 
+
     }, [id])
 
     return (

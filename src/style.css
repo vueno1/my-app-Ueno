@@ -76,7 +76,6 @@
     list-style-type: none;
 }
 
-
 .main {
     padding-top: 100px;
 }
@@ -111,7 +110,6 @@
     margin: 20px;
     align-items: center;
     padding: 20px;
-
 }
 
 .cardBody {
@@ -127,16 +125,16 @@
 
 .itemTitle {
     font-size: 15px;
+    font-style: italic;
+    text-align: center;
 }
 
 .itemPrecio {
     font-style: italic;
     font-weight: bolder;
     background-color: rgb(138, 238, 245);
-}
-
-.itemDetailImg img {
-    height: 200px;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 .mainCards {
@@ -147,20 +145,32 @@
     padding-top: 50px;
 }
 
+.detalleTitulos {
+    font-family: 'Bebas Neue', cursive;
+}
+
 .cardSeleccion {
-    margin: 50px;
+    margin: 20px 0 30px 0;
+}
+
+.detalleImg {
+    width: 200px;
+    overflow: hidden;
 }
 
 .detalleTituloProducto {
     font-size:medium;
     padding:20px;
+    font-style: italic;
+    text-align: center;
 }
 
 .detallePrecio {
     font-size: 20px;
     background-color: rgb(138, 238, 245);
     border-radius: 5px;
-    padding: 5px;  
+    padding: 5px; 
+    font-weight: bolder; 
 }
 
 .detalleCarrito {
@@ -243,6 +253,8 @@
 .googlePic {
     height: 40px;
     margin-right: 5px;
+    border-radius: 20px;
+    border: rgb(138, 238, 245) solid;
 }
 
 .googleIcon {

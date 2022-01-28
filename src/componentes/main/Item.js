@@ -8,8 +8,8 @@ function Item({item}) {
         <Card className='Cards'>
             <Card.Img className='cardImg' variant="top" src={item.imagen}/>    
             <Card.Body className='cardBody'>                    
-                <Card.Title className='itemTitle'>{item.title}</Card.Title>
-                <Card.Text className='itemPrecio'>USD {item.precio}</Card.Text>                    
+                <Card.Title className='itemTitle'>"{item.title}"</Card.Title>
+                <Card.Text className='itemPrecio'>USD {item.precio.toFixed(2)}</Card.Text>                    
                 <Link to={`/producto/${item.id}`}>
                     <Button variant="outline-info">Ver Producto</Button>
                 </Link>            

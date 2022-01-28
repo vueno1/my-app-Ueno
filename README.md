@@ -1,46 +1,48 @@
 # PROYECTO REACT JS
 # TIENDA ONLINE
 
-"Tienda Online" es una aplicación con la funcionalidad de un e-commerce, la cual me permite el despliegue de varios productos, ver sus detalles, agregarlos al carrito y finalmente generar la confirmación de la compra.
+"Tienda Online" es una aplicación con la funcionalidad de un e-commerce.
+La misma despliega una cierta cantidad de productos, de los cuales podemos ver sus detalles, agregarlos al carrito y finalmente generar la compra.
 
 ## Descripción de la Aplicación:
 
-* Consume la API [Fakestore](https://fakestoreapi.com/), la cual se encuentra subida a Firebase.
+* Consume la API [Fakestore](https://fakestoreapi.com/), la cual se encuentra subida a la base de datos de Firebase.
 
-* La aplicación me muestra sus productos en su totalidad, o por categoría. 
+* Tambien, usé el método "Authentication" que ofrece Firebase para que el usuario se loguee en la página. 
+En este caso elegí el proveedor Google. 
 
-* Una vez elegido el producto seleccionado, indico la cantidad con el botón de suma o resta, y la agrego a mi carrito. 
+* La aplicación me muestra sus productos en su totalidad o por categoría. 
 
-* Un mensaje desplegable nos indica que el producto fue agregado.
+* Una vez elegido el producto, se indica la cantidad con el botón de suma o resta, y se agrega al carrito. 
 
-* En carrito chequeo mi compra, lleno el formulario con los datos del comprador y lo confirmo.
+* Una notificación indica que el producto fue agregado.
 
-* Un nuevo mensaje desplegable nos indica que la compra ha sido exitosa y nos muestra el codigo de compra y nombre del comprador.
+* En carrito se observan los productos agregados, con sus cantidades y sus respectivos precios por cantidad.
+Allí, también se llena el formulario con los datos del comprador y se confirma la compra.
+
+* Nuevamente una notificación nos indica que la compra ha sido exitosa y nos muestra el código de compra y nombre del comprador.
 
 ### Componentes:
 ![image](https://github.com/vueno1/my-app-Ueno/blob/master/public/croquis.jpg?raw=true)
 
 ### Tecnologías utilizadas:
 
-* Create-React-App: para el desarrollo de la aplicación. 
-* Firebase: para la base de datos.
-* React-Router-Dom: para el ruteo de links.
-* React-Bootstrap: para agregar estilos a la página.
-* Toastify: para los avisos desplegables.
+* Create-React-App: Desarrollo de la aplicación. 
+* Firebase: Base de datos y autenticación de usuario.
+* React-Router-Dom: Ruteo de links.
+* React-Bootstrap: Estilos a la página.
+* Toastify: Notificaciones pop-up.
 
-### Como clonar repositorio: 
+### Clonar y usar: 
 
-Linea de comandos:
+
 ```
 git clone https://github.com/vueno1/my-app-Ueno.git
 npm install
-```
-Luego, para ver la aplicación en el navegador: 
-```
 npm start
 ```
 
-### Autor: 
+### Autora: 
 ```
 Ueno Valeria 
 https://www.linkedin.com/in/valeria-ueno-996a61210/
