@@ -1,6 +1,8 @@
 # PROYECTO REACT JS
 # TIENDA ONLINE
 
+![gif](https://github.com/vueno1/my-app-Ueno/blob/master/public/Animation.gif?raw=true)
+
 "Tienda Online" es una aplicación con la funcionalidad de un e-commerce.
 La misma despliega una cierta cantidad de productos, de los cuales podemos ver sus detalles, agregarlos al carrito y finalmente generar la compra.
 
