@@ -6,7 +6,9 @@ function Item({item}) {
     
     return (        
         <Card className='Cards'>
-            <Card.Img className='cardImg' variant="top" src={item.imagen}/>    
+            <div>
+                <Card.Img className='cardImg' variant="top" src={item.imagen}/>    
+            </div>
             <Card.Body className='cardBody'>                    
                 <Card.Title className='itemTitle'>"{item.title}"</Card.Title>
                 <Card.Text className='itemPrecio'>USD {item.precio.toFixed(2)}</Card.Text>                    
