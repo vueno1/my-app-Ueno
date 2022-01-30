@@ -241,13 +241,27 @@
     border-top: black dotted;
 }
 
+.verificacion {
+    font-size: 15px;
+}
+
 #nombre {
-    margin-bottom: 10px;
+    margin: 10px 0 ;
+    font-size: medium;
+    color: rgba(0, 0, 255, 0.685);
+    border: rgba(128, 128, 128, 0.678) solid;
+    border-width: thin;
+    padding: 5px 0;
 
 }
 
 #email {
-    margin-bottom: 10px;
+    margin: 10px 0 ;
+    font-size: medium;
+    color: rgba(0, 0, 255, 0.685);
+    border: rgba(128, 128, 128, 0.678) solid;
+    border-width: thin;
+    padding: 5px 0;
 }
 
 .googlePic {

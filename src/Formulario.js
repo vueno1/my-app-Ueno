@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { db } from './firebase'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 import { Button, Card } from 'react-bootstrap';
@@ -9,31 +8,14 @@ const Formulario = () => {
 
     const {carrito, limpiarCarrito, precioTotal} = useContexto () 
 
-    const [nombre, setNombre] = useState ("") 
-    const [apellido, setApellido] = useState ("")
-    const [email, setEmail] = useState ("")
-
-    const guardarNombre = e => {
-        setNombre(e.target.value);   
-    }
-
-    const guardarApellido = e => {
-        setApellido (e.target.value)
-    }
-
-    const guardarEmail = e => {
-        setEmail (e.target.value)
-    }
-
     const finalizarCompra = () =>{        
         const ventasCollection = collection (db, "ventas")
 
         addDoc (ventasCollection, {
 
             buyer: {
-                name: nombre,
-                lastName: apellido,
-                email: email
+                comprador: localStorage.getItem("name"),
+                email: localStorage.getItem("email")
             },
 
             items: carrito,
@@ -43,7 +25,7 @@ const Formulario = () => {
 
         .then ((resultado) => {
             
-            toast(`✔️ Compra exitosa!, Su codigo de compra es = # ${resultado.id} a nombre de ${apellido} ${nombre}`, {
+            toast(`✔️ Compra exitosa!, Su codigo de compra es = # ${resultado.id} a nombre de ${localStorage.getItem("name")}`, {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -57,24 +39,36 @@ const Formulario = () => {
         limpiarCarrito ()
     }
 
-    return (
-        <div>
-
-            <div className='formulario_input'>
-                <h3>Complete sus datos antes de finalizar la compra: </h3>
-                <input id='nombre' type="text" placeholder='Nombre' onChange={guardarNombre}/>
-                <input id='email' type="text" placeholder='Apellido' onChange={guardarApellido} />
-                <input id='telefono' type="text" placeholder='Email' onChange={guardarEmail}/>
+    if (localStorage.getItem ("name") && localStorage.getItem ("email")) {
+        return (
+            <div>
+                <div className='formulario_input'>
+                    <h3 className='datosComprador'>Datos del Comprador:</h3>
+                    <h4 id='nombre'> Comprador = {localStorage.getItem("name")}</h4>
+                    <h4 id='email'>Email = {localStorage.getItem("email")}</h4>
+                </div>
+    
+                <Card>
+                    <Card.Body>                                 
+                        <Button onClick={finalizarCompra} variant="info">Terminar compra</Button>
+                    </Card.Body>                            
+                </Card> 
+                
             </div>
+        )
 
-            <Card>
-                <Card.Body>                                 
-                    <Button onClick={finalizarCompra} variant="info">Terminar compra</Button>
-                </Card.Body>                            
-            </Card> 
+    } else {
+        return (
             
-        </div>
-    );
+            <div className='formulario_input'>
+                <h3 className='datosComprador'>Por favor, inicie sesión:</h3>
+                <h4 id='nombre'> Comprador = ??? </h4>
+                <h4 id='email'>Email = ??? </h4>
+            </div>                
+            
+        )
+    }
+
 }
 
 export default Formulario;

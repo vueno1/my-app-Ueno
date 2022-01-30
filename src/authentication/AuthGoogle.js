@@ -3,6 +3,7 @@ import { useState } from 'react'
 import {auth, provider} from "../firebase"
 import googleIcon from '../assets/google.png'
 import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const Authgoogle = () => {
 
@@ -34,6 +35,10 @@ const Authgoogle = () => {
         signOut (auth) 
     
         .then ((resultado) =>{
+            localStorage.removeItem ("email")
+            localStorage.removeItem ("name")
+            localStorage.removeItem ("foto")
+            document.location.reload()
             setIsSignIn (true)
         })
 
@@ -46,15 +51,19 @@ const Authgoogle = () => {
         return (
             <div>
                 <img className='googleIcon' src={googleIcon} alt="googleIcon" />
-                <Button onClick={signInGoogle} variant="light">Sign in</Button>
+                <Link to="/productos">
+                    <Button onClick={signInGoogle} variant="light">Sign in</Button>
+                </Link>
             </div>
         )
 
     } else {
         return (
             <div className='divGoogleProfile'>
-                <img className='googlePic' src={localStorage.getItem ("foto")} alt='foto'/>            
-                <Button onClick={signOutGoogle} variant="outline-dark">Salir</Button>
+                <img className='googlePic' src={localStorage.getItem ("foto")} alt='foto'/> 
+                <Link to="/productos">
+                    <Button onClick={signOutGoogle} variant="outline-dark">Salir</Button>
+                </Link>          
             </div>
         )
     }

@@ -8,10 +8,9 @@ function Carrito() {
 
     const {carrito, borrarDelCarrito, limpiarCarrito, precioTotal} = useContexto ()   
 
-    return (    
+    return (  
             
         <div className='carrito'>
-
             <h1 className='tituloCarrito'>Sector Carrito:</h1>
             {carrito.length > 0 ? (                    
                 <ul>  
