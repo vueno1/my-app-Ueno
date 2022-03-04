@@ -1,0 +1,8 @@
+Catalogo : Todo correcto pero para la proxima:
+
+intenta siempre hacer la consulta usando un query o un filtro de base de datos en vez de 
+traer todos los productos y filtrarlos vos a mano asi te evitas ese paso y 
+encima tenes menos cosas para pedir
+
+- Detalle : Todo correcto, de hecho aca si tenes bien aplicado un query 
+lo cual es raro, intenta modificarlo en el catalogo con el mismo razonamiento 

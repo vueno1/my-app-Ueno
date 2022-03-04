@@ -3,7 +3,7 @@ import ItemList from './ItemList'
 import { useParams } from 'react-router-dom'
 import { BeatLoader } from 'react-spinners'
 import { db } from '../../firebase'
-import {collection, getDocs, query, where } from 'firebase/firestore'
+import {collection, getDocs } from 'firebase/firestore'
 
 function ItemListContainer({nombre}) {
 
@@ -11,56 +11,38 @@ function ItemListContainer({nombre}) {
     const [loading, setLoading] = useState (true)
     const [lista, setLista] = useState ([])
   
-    useEffect (() => {
+    useEffect ( () => {
 
-        //traigo mi colleccion 
         const productoCollection = collection (db, "productos")
 
         if (id) {
 
-            //id 1 → todos los productos 
-            //id 2 → electronicos
-            //id 3 → jewelery 
-            //id 4 → mans
-            //id 5 → womans
-
-            //hago la consulta dentro de mi coleccion 
-            const consulta = query (
-                productoCollection, 
-                //donde la categoria coincide con mi id 
-                where ("categoria", "==", id)
-            )
-
-            getDocs (consulta)            
-                .then ((resultado)=>{
-
-                    const docs = resultado.docs //me trae una array con la info
+            getDocs (productoCollection)
+    
+            .then ( (resultado) => {
+                const docs = resultado.docs
+                
+                const lista = docs.map ((doc)=> {
                     
-                    //esa array la mapeo para obtener la data
-                    const lista = docs.map ((doc) =>{
-                        
-                        const id = doc.id
-                        const data = doc.data ()
-
-                        const producto = {
-                            id:id,
-                            ...data
-                        }
-
-                        return producto
-                    })
-
-                    setLista (lista) 
-                    setLoading (false)
+                    const id = doc.id
+                    const data = doc.data ()
+                    const producto = {
+                        identificacion: id, 
+                        ...data
+                    }
+                    return producto
                 })
-
+                
+                const listaFiltrada = lista.filter (producto => producto.categoria === id)
+                setLista (listaFiltrada)
+                setLoading (false)    
+            })
+            
             .catch ((error) =>{
                 console.log (error)
-            })           
-        }   
-        
-        else {
+            })
 
+        }   else {
             getDocs (productoCollection)
 
             .then ( (resultado) => {
